@@ -80,6 +80,7 @@ func init() {
 			return NewShimManager(&ManagerConfig{
 				Address:      ic.Properties[plugins.PropertyGRPCAddress],
 				TTRPCAddress: ic.Properties[plugins.PropertyTTRPCAddress],
+				StateDir:     filepath.Dir(ic.Properties[plugins.PropertyStateDir]),
 				Events:       events,
 				Store:        cs,
 				ShimEnv:      config.Env,
@@ -123,6 +124,10 @@ type ManagerConfig struct {
 	Events       *exchange.Exchange
 	Address      string
 	TTRPCAddress string
+	// StateDir is the top-level state directory for containerd.
+	// It is passed to shim processes so their sockets are placed under
+	// the configured state directory rather than the compiled-in default.
+	StateDir     string
 	SandboxStore sandbox.Store
 	ShimEnv      []string
 }
@@ -132,6 +137,7 @@ func NewShimManager(config *ManagerConfig) (*ShimManager, error) {
 	m := &ShimManager{
 		containerdAddress:      config.Address,
 		containerdTTRPCAddress: config.TTRPCAddress,
+		stateDir:               config.StateDir,
 		shims:                  runtime.NewNSMap[ShimInstance](),
 		events:                 config.Events,
 		containers:             config.Store,
@@ -149,6 +155,7 @@ func NewShimManager(config *ManagerConfig) (*ShimManager, error) {
 type ShimManager struct {
 	containerdAddress      string
 	containerdTTRPCAddress string
+	stateDir               string
 	env                    []string
 	shims                  *runtime.NSMap[ShimInstance]
 	events                 *exchange.Exchange
@@ -288,6 +295,7 @@ func (m *ShimManager) startShim(ctx context.Context, bundle *Bundle, id string, 
 		runtime:      runtimePath,
 		address:      m.containerdAddress,
 		ttrpcAddress: m.containerdTTRPCAddress,
+		stateDir:     m.stateDir,
 		env:          m.env,
 	})
 	shim, err := b.Start(ctx, typeurl.MarshalProto(topts), func() {

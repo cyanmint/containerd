@@ -47,6 +47,11 @@ type CommandConfig struct {
 	Args         []string
 	Opts         *types.Any
 	Env          []string
+	// StateDir is the top-level state directory for containerd.
+	// When set, it is passed to the shim process via the SocketRootEnv
+	// environment variable so the shim places its socket in the configured
+	// state directory instead of the compiled-in default.
+	StateDir string
 }
 
 // Command returns the shim command with the provided args and configuration
@@ -75,6 +80,9 @@ func Command(ctx context.Context, config *CommandConfig) (*exec.Cmd, error) {
 		fmt.Sprintf("%s=%s", grpcAddressEnv, config.Address),
 		fmt.Sprintf("%s=%s", namespaceEnv, ns),
 	)
+	if config.StateDir != "" {
+		cmd.Env = append(cmd.Env, fmt.Sprintf("%s=%s", SocketRootEnv, config.StateDir))
+	}
 	if len(config.Env) > 0 {
 		cmd.Env = append(cmd.Env, config.Env...)
 	}
