@@ -122,13 +122,16 @@ var execCommand = &cli.Command{
 			con console.Console
 		)
 
-		fifoDir := cliContext.String("fifo-dir")
+		fifoDir := commands.FIFODir(cliContext)
 		logURI := cliContext.String("log-uri")
 		ioOpts := []cio.Opt{cio.WithFIFODir(fifoDir)}
 		switch {
 		case tty && logURI != "":
 			return errors.New("can't use log-uri with tty")
-		case logURI != "" && fifoDir != "":
+		// Check the raw --fifo-dir flag rather than the computed fifoDir:
+		// fifoDir is always non-empty (derived from --address when not set),
+		// but the conflict only applies when the user explicitly requested FIFOs.
+		case logURI != "" && cliContext.String("fifo-dir") != "":
 			return errors.New("can't use log-uri with fifo-dir")
 
 		case tty:

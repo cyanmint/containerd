@@ -277,6 +277,27 @@ func PrintAsJSON(x interface{}) {
 	fmt.Println(string(b))
 }
 
+// FIFODir returns the FIFO directory to use for a ctr command.
+// When the --fifo-dir flag is set on the command, that value is used directly.
+// Otherwise the directory is derived from the parent directory of the
+// containerd socket address (--address flag), keeping FIFOs alongside the
+// socket rather than at the compiled-in default path.
+// The --address flag always has a non-empty default value, so the fallback to
+// defaults.DefaultFIFODir is only a safety net for edge cases where the flag
+// value is unexpectedly empty.
+func FIFODir(cliContext *cli.Context) string {
+	if dir := cliContext.String("fifo-dir"); dir != "" {
+		return dir
+	}
+	address := cliContext.String("address")
+	if address == "" {
+		// Should not happen in practice since --address always has a default;
+		// use the compiled-in default as a last resort.
+		return defaults.DefaultFIFODir
+	}
+	return filepath.Join(filepath.Dir(address), "fifo")
+}
+
 // WritePidFile writes the pid atomically to a file
 func WritePidFile(path string, pid int) error {
 	path, err := filepath.Abs(path)

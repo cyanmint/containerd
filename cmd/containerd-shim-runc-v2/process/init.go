@@ -81,7 +81,7 @@ type Init struct {
 // NewRunc returns a new runc instance for a process
 func NewRunc(root, path, namespace, runtime string, systemd bool) *runc.Runc {
 	if root == "" {
-		root = RuncRoot
+		root = defaultRuncRoot()
 	}
 	return &runc.Runc{
 		Command:       runtime,
