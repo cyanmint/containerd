@@ -20,6 +20,8 @@ package oci
 
 import (
 	"context"
+	"os"
+	"path/filepath"
 	"testing"
 
 	"github.com/containerd/containerd/v2/core/containers"
@@ -110,5 +112,49 @@ func TestWithUmask_WithDefaultSpec(t *testing.T) {
 	}
 	if *s.Process.User.Umask != 0o077 {
 		t.Fatalf("unexpected umask: got %03O, want %03O", *s.Process.User.Umask, 0o077)
+	}
+}
+
+// TestWithHostFileSkipsWhenMissing verifies that withHostFile silently skips the
+// bind-mount when the source file does not exist on the host (e.g. Android/embedded
+// systems that lack /etc/resolv.conf, /etc/hosts, or /etc/localtime).
+func TestWithHostFileSkipsWhenMissing(t *testing.T) {
+	t.Parallel()
+	missingPath := filepath.Join(t.TempDir(), "nonexistent")
+	var s Spec
+	opt := withHostFile(missingPath, "/etc/test")
+	if err := opt(nil, nil, nil, &s); err != nil {
+		t.Fatalf("expected no error for missing host file, got: %v", err)
+	}
+	for _, m := range s.Mounts {
+		if m.Destination == "/etc/test" {
+			t.Errorf("expected no mount to be added for missing source %q, but found one", missingPath)
+		}
+	}
+}
+
+// TestWithHostFileAddsWhenPresent verifies that withHostFile adds the bind-mount
+// when the source file exists on the host.
+func TestWithHostFileAddsWhenPresent(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	src := filepath.Join(dir, "testfile")
+	if err := os.WriteFile(src, []byte("content"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	var s Spec
+	opt := withHostFile(src, "/etc/test")
+	if err := opt(nil, nil, nil, &s); err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	found := false
+	for _, m := range s.Mounts {
+		if m.Destination == "/etc/test" && m.Source == src {
+			found = true
+			break
+		}
+	}
+	if !found {
+		t.Errorf("expected bind-mount %q -> /etc/test to be added but it was not", src)
 	}
 }

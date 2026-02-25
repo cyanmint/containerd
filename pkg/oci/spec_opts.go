@@ -510,58 +510,44 @@ func WithNoNewPrivileges(_ context.Context, _ Client, _ *containers.Container, s
 	return nil
 }
 
+// withHostFile returns a SpecOpts that bind-mounts hostPath into the container
+// at containerPath as readonly. If hostPath does not exist the mount is silently
+// skipped, so that containers can start even on hosts that lack the file (e.g.
+// Android/embedded systems without /etc/resolv.conf or /etc/localtime).
+func withHostFile(hostPath, containerPath string) SpecOpts {
+	return func(_ context.Context, _ Client, _ *containers.Container, s *Spec) error {
+		if _, err := os.Stat(hostPath); err != nil {
+			if os.IsNotExist(err) {
+				return nil
+			}
+			return err
+		}
+		s.Mounts = append(s.Mounts, specs.Mount{
+			Destination: containerPath,
+			Type:        "bind",
+			Source:      hostPath,
+			Options:     []string{"rbind", "ro"},
+		})
+		return nil
+	}
+}
+
 // WithHostHostsFile bind-mounts the host's /etc/hosts into the container as readonly.
 // If /etc/hosts does not exist on the host the mount is silently skipped.
-func WithHostHostsFile(_ context.Context, _ Client, _ *containers.Container, s *Spec) error {
-	if _, err := os.Stat("/etc/hosts"); err != nil {
-		if os.IsNotExist(err) {
-			return nil
-		}
-		return err
-	}
-	s.Mounts = append(s.Mounts, specs.Mount{
-		Destination: "/etc/hosts",
-		Type:        "bind",
-		Source:      "/etc/hosts",
-		Options:     []string{"rbind", "ro"},
-	})
-	return nil
+func WithHostHostsFile(ctx context.Context, client Client, c *containers.Container, s *Spec) error {
+	return withHostFile("/etc/hosts", "/etc/hosts")(ctx, client, c, s)
 }
 
 // WithHostResolvconf bind-mounts the host's /etc/resolv.conf into the container as readonly.
 // If /etc/resolv.conf does not exist on the host the mount is silently skipped.
-func WithHostResolvconf(_ context.Context, _ Client, _ *containers.Container, s *Spec) error {
-	if _, err := os.Stat("/etc/resolv.conf"); err != nil {
-		if os.IsNotExist(err) {
-			return nil
-		}
-		return err
-	}
-	s.Mounts = append(s.Mounts, specs.Mount{
-		Destination: "/etc/resolv.conf",
-		Type:        "bind",
-		Source:      "/etc/resolv.conf",
-		Options:     []string{"rbind", "ro"},
-	})
-	return nil
+func WithHostResolvconf(ctx context.Context, client Client, c *containers.Container, s *Spec) error {
+	return withHostFile("/etc/resolv.conf", "/etc/resolv.conf")(ctx, client, c, s)
 }
 
 // WithHostLocaltime bind-mounts the host's /etc/localtime into the container as readonly.
 // If /etc/localtime does not exist on the host the mount is silently skipped.
-func WithHostLocaltime(_ context.Context, _ Client, _ *containers.Container, s *Spec) error {
-	if _, err := os.Stat("/etc/localtime"); err != nil {
-		if os.IsNotExist(err) {
-			return nil
-		}
-		return err
-	}
-	s.Mounts = append(s.Mounts, specs.Mount{
-		Destination: "/etc/localtime",
-		Type:        "bind",
-		Source:      "/etc/localtime",
-		Options:     []string{"rbind", "ro"},
-	})
-	return nil
+func WithHostLocaltime(ctx context.Context, client Client, c *containers.Container, s *Spec) error {
+	return withHostFile("/etc/localtime", "/etc/localtime")(ctx, client, c, s)
 }
 
 // WithUserNamespace sets the uid and gid mappings for the task
