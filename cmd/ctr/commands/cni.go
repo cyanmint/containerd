@@ -39,6 +39,12 @@ const (
 // NetworkMetaData ctr pass cni network metadata to containerd if ctr run use option of --cni
 type NetworkMetaData struct {
 	EnableCni bool
+	// CniConfPath is the directory containing CNI network configuration files.
+	// When empty the go-cni default (/etc/cni/net.d) is used.
+	CniConfPath string
+	// CniBinPath is the directory containing CNI plugin binaries.
+	// When empty the go-cni default (/opt/cni/bin) is used.
+	CniBinPath string
 }
 
 func FullID(ctx context.Context, c containerd.Container) string {

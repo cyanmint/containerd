@@ -130,6 +130,14 @@ var Command = &cli.Command{
 			Name:  "cni",
 			Usage: "Enable cni networking for the container",
 		},
+		&cli.StringFlag{
+			Name:  "cni-conf-path",
+			Usage: "CNI configuration directory (default: /etc/cni/net.d)",
+		},
+		&cli.StringFlag{
+			Name:  "cni-bin-path",
+			Usage: "CNI plugin binary directory (default: /opt/cni/bin)",
+		},
 		&cli.BoolFlag{
 			Name:  "sync-fs",
 			Usage: "Synchronize the underlying filesystem containing files when unpack images, false by default",
@@ -219,7 +227,14 @@ var Command = &cli.Command{
 		}
 		var network gocni.CNI
 		if enableCNI {
-			if network, err = gocni.New(gocni.WithDefaultConf); err != nil {
+			cniOpts := []gocni.Opt{gocni.WithDefaultConf}
+			if p := cliContext.String("cni-conf-path"); p != "" {
+				cniOpts = append(cniOpts, gocni.WithPluginConfDir(p))
+			}
+			if p := cliContext.String("cni-bin-path"); p != "" {
+				cniOpts = append(cniOpts, gocni.WithPluginDir([]string{p}))
+			}
+			if network, err = gocni.New(cniOpts...); err != nil {
 				return err
 			}
 		}
