@@ -510,8 +510,15 @@ func WithNoNewPrivileges(_ context.Context, _ Client, _ *containers.Container, s
 	return nil
 }
 
-// WithHostHostsFile bind-mounts the host's /etc/hosts into the container as readonly
+// WithHostHostsFile bind-mounts the host's /etc/hosts into the container as readonly.
+// If /etc/hosts does not exist on the host the mount is silently skipped.
 func WithHostHostsFile(_ context.Context, _ Client, _ *containers.Container, s *Spec) error {
+	if _, err := os.Stat("/etc/hosts"); err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return err
+	}
 	s.Mounts = append(s.Mounts, specs.Mount{
 		Destination: "/etc/hosts",
 		Type:        "bind",
@@ -521,8 +528,15 @@ func WithHostHostsFile(_ context.Context, _ Client, _ *containers.Container, s *
 	return nil
 }
 
-// WithHostResolvconf bind-mounts the host's /etc/resolv.conf into the container as readonly
+// WithHostResolvconf bind-mounts the host's /etc/resolv.conf into the container as readonly.
+// If /etc/resolv.conf does not exist on the host the mount is silently skipped.
 func WithHostResolvconf(_ context.Context, _ Client, _ *containers.Container, s *Spec) error {
+	if _, err := os.Stat("/etc/resolv.conf"); err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return err
+	}
 	s.Mounts = append(s.Mounts, specs.Mount{
 		Destination: "/etc/resolv.conf",
 		Type:        "bind",
@@ -532,8 +546,15 @@ func WithHostResolvconf(_ context.Context, _ Client, _ *containers.Container, s 
 	return nil
 }
 
-// WithHostLocaltime bind-mounts the host's /etc/localtime into the container as readonly
+// WithHostLocaltime bind-mounts the host's /etc/localtime into the container as readonly.
+// If /etc/localtime does not exist on the host the mount is silently skipped.
 func WithHostLocaltime(_ context.Context, _ Client, _ *containers.Container, s *Spec) error {
+	if _, err := os.Stat("/etc/localtime"); err != nil {
+		if os.IsNotExist(err) {
+			return nil
+		}
+		return err
+	}
 	s.Mounts = append(s.Mounts, specs.Mount{
 		Destination: "/etc/localtime",
 		Type:        "bind",
