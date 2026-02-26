@@ -511,21 +511,24 @@ func WithNoNewPrivileges(_ context.Context, _ Client, _ *containers.Container, s
 }
 
 // withHostFile returns a SpecOpts that bind-mounts hostPath into the container
-// at containerPath as readonly. If hostPath does not exist the mount is silently
-// skipped, so that containers can start even on hosts that lack the file (e.g.
-// Android/embedded systems without /etc/resolv.conf or /etc/localtime).
+// at containerPath as readonly. Symlinks in hostPath are resolved to their real
+// path so the OCI runtime receives a direct file path. If hostPath cannot be
+// resolved for any reason (absent, broken symlink, permission denied, etc.) the
+// mount is silently skipped, so that containers can start even on hosts that
+// lack the file (e.g. Android/embedded systems without /etc/resolv.conf or
+// /etc/localtime, or setups where the OCI runtime runs in a different
+// filesystem context than containerd).
 func withHostFile(hostPath, containerPath string) SpecOpts {
 	return func(_ context.Context, _ Client, _ *containers.Container, s *Spec) error {
-		if _, err := os.Stat(hostPath); err != nil {
-			if os.IsNotExist(err) {
-				return nil
-			}
-			return err
+		realPath, err := filepath.EvalSymlinks(hostPath)
+		if err != nil {
+			// Silently skip if the path is absent or cannot be resolved.
+			return nil
 		}
 		s.Mounts = append(s.Mounts, specs.Mount{
 			Destination: containerPath,
 			Type:        "bind",
-			Source:      hostPath,
+			Source:      realPath,
 			Options:     []string{"rbind", "ro"},
 		})
 		return nil

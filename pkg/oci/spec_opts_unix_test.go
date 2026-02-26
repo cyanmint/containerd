@@ -133,13 +133,41 @@ func TestWithHostFileSkipsWhenMissing(t *testing.T) {
 	}
 }
 
+// TestWithHostFileSkipsWhenBrokenSymlink verifies that withHostFile silently
+// skips the bind-mount when hostPath is a symlink whose target does not exist.
+func TestWithHostFileSkipsWhenBrokenSymlink(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	target := filepath.Join(dir, "nonexistent")
+	link := filepath.Join(dir, "symlink")
+	if err := os.Symlink(target, link); err != nil {
+		t.Fatal(err)
+	}
+	var s Spec
+	opt := withHostFile(link, "/etc/test")
+	if err := opt(nil, nil, nil, &s); err != nil {
+		t.Fatalf("expected no error for broken symlink, got: %v", err)
+	}
+	for _, m := range s.Mounts {
+		if m.Destination == "/etc/test" {
+			t.Errorf("expected no mount to be added for broken symlink %q, but found one", link)
+		}
+	}
+}
+
 // TestWithHostFileAddsWhenPresent verifies that withHostFile adds the bind-mount
-// when the source file exists on the host.
+// when the source file exists on the host, using the resolved real path.
 func TestWithHostFileAddsWhenPresent(t *testing.T) {
 	t.Parallel()
 	dir := t.TempDir()
 	src := filepath.Join(dir, "testfile")
 	if err := os.WriteFile(src, []byte("content"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	// Resolve the expected source path (important on platforms where t.TempDir()
+	// may return a path containing symlinks, e.g. /tmp -> /private/tmp on macOS).
+	expectedSrc, err := filepath.EvalSymlinks(src)
+	if err != nil {
 		t.Fatal(err)
 	}
 	var s Spec
@@ -149,12 +177,50 @@ func TestWithHostFileAddsWhenPresent(t *testing.T) {
 	}
 	found := false
 	for _, m := range s.Mounts {
-		if m.Destination == "/etc/test" && m.Source == src {
+		if m.Destination == "/etc/test" && m.Source == expectedSrc {
 			found = true
 			break
 		}
 	}
 	if !found {
-		t.Errorf("expected bind-mount %q -> /etc/test to be added but it was not", src)
+		t.Errorf("expected bind-mount %q -> /etc/test to be added but it was not", expectedSrc)
+	}
+}
+
+// TestWithHostFileFollowsSymlinks verifies that withHostFile resolves symlinks
+// and uses the real underlying path as the mount source.
+func TestWithHostFileFollowsSymlinks(t *testing.T) {
+	t.Parallel()
+	dir := t.TempDir()
+	realFile := filepath.Join(dir, "realfile")
+	if err := os.WriteFile(realFile, []byte("content"), 0644); err != nil {
+		t.Fatal(err)
+	}
+	symlinkPath := filepath.Join(dir, "symlink")
+	if err := os.Symlink(realFile, symlinkPath); err != nil {
+		t.Fatal(err)
+	}
+	// The expected source is the resolved real file path.
+	expectedSrc, err := filepath.EvalSymlinks(symlinkPath)
+	if err != nil {
+		t.Fatal(err)
+	}
+	var s Spec
+	opt := withHostFile(symlinkPath, "/etc/test")
+	if err := opt(nil, nil, nil, &s); err != nil {
+		t.Fatalf("unexpected error: %v", err)
+	}
+	found := false
+	for _, m := range s.Mounts {
+		if m.Destination == "/etc/test" {
+			found = true
+			if m.Source != expectedSrc {
+				t.Errorf("expected symlink to be resolved to %q, got %q", expectedSrc, m.Source)
+			}
+			break
+		}
+	}
+	if !found {
+		t.Errorf("expected bind-mount for symlink %q to be added but it was not", symlinkPath)
 	}
 }
