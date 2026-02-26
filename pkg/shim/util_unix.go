@@ -38,7 +38,6 @@ import (
 	"github.com/containerd/log"
 	"github.com/mdlayher/vsock"
 
-	"github.com/containerd/containerd/v2/defaults"
 	"github.com/containerd/containerd/v2/pkg/namespaces"
 	"github.com/containerd/containerd/v2/pkg/sys"
 )
@@ -73,8 +72,6 @@ func AdjustOOMScore(pid int) error {
 	return nil
 }
 
-const socketRoot = defaults.DefaultStateDir
-
 // SocketAddress returns a socket address
 func SocketAddress(ctx context.Context, socketPath, id string, debug bool) (string, error) {
 	ns, err := namespaces.NamespaceRequired(ctx)
@@ -86,7 +83,13 @@ func SocketAddress(ctx context.Context, socketPath, id string, debug bool) (stri
 		path = filepath.Join(path, "debug")
 	}
 	d := sha256.Sum256([]byte(path))
-	return fmt.Sprintf("unix://%s/%x", filepath.Join(socketRoot, "s"), d), nil
+	// Use the parent directory of the containerd socket as the shim socket root.
+	// This avoids hard-coding /run/containerd while also keeping socket paths
+	// short enough to satisfy the Linux sun_path limit (108 bytes including the
+	// null terminator), since the containerd socket itself must already fit in
+	// that limit.
+	sockRoot := filepath.Dir(socketPath)
+	return fmt.Sprintf("unix://%s/%x", filepath.Join(sockRoot, "s"), d), nil
 }
 
 // AnonDialer returns a dialer for a socket

@@ -23,6 +23,20 @@ import (
 	"testing"
 )
 
+func TestCNIFlagsRegistered(t *testing.T) {
+	flagNames := make(map[string]struct{})
+	for _, f := range Command.Flags {
+		for _, name := range f.Names() {
+			flagNames[name] = struct{}{}
+		}
+	}
+	for _, name := range []string{"cni", "cni-conf-path", "cni-bin-path"} {
+		if _, ok := flagNames[name]; !ok {
+			t.Errorf("expected flag --%s to be registered on the run command", name)
+		}
+	}
+}
+
 func TestDetectGPUVendor(t *testing.T) {
 	ctx := context.Background()
 

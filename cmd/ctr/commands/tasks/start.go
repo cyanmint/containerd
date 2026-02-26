@@ -81,7 +81,7 @@ var startCommand = &cli.Command{
 		var (
 			tty    = spec.Process.Terminal
 			opts   = GetNewTaskOpts(cliContext)
-			ioOpts = []cio.Opt{cio.WithFIFODir(cliContext.String("fifo-dir"))}
+			ioOpts = []cio.Opt{cio.WithFIFODir(commands.FIFODir(cliContext))}
 		)
 		var con console.Console
 		if tty {

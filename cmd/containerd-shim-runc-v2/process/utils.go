@@ -35,11 +35,25 @@ import (
 )
 
 const (
-	// RuncRoot is the path to the root runc state directory
+	// RuncRoot is the default path to the root runc state directory.
+	// Use defaultRuncRoot() to get the effective value which respects the
+	// SOCKET_ROOT environment variable set by containerd.
 	RuncRoot = "/run/containerd/runc"
 	// InitPidFile name of the file that contains the init pid
 	InitPidFile = "init.pid"
 )
+
+// defaultRuncRoot returns the effective runc state directory.
+// When the SOCKET_ROOT environment variable is set (injected by containerd
+// from the configured state directory), the runc root is placed under that
+// directory so it follows the operator's chosen path rather than the
+// compiled-in default.
+func defaultRuncRoot() string {
+	if root := os.Getenv("SOCKET_ROOT"); root != "" {
+		return filepath.Join(root, "runc")
+	}
+	return RuncRoot
+}
 
 // safePid is a thread safe wrapper for pid.
 type safePid struct {

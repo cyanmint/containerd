@@ -169,7 +169,11 @@ func NewContainer(ctx context.Context, client *containerd.Client, cliContext *cl
 	}
 
 	if cliContext.Bool("cni") {
-		cniMeta := &commands.NetworkMetaData{EnableCni: true}
+		cniMeta := &commands.NetworkMetaData{
+			EnableCni:   true,
+			CniConfPath: cliContext.String("cni-conf-path"),
+			CniBinPath:  cliContext.String("cni-bin-path"),
+		}
 		cOpts = append(cOpts, containerd.WithContainerExtension(commands.CtrCniMetadataExtension, cniMeta))
 	}
 

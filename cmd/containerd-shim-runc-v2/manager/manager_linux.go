@@ -301,7 +301,7 @@ func (manager) Stop(ctx context.Context, id string) (shim.StopStatus, error) {
 	if err != nil {
 		return shim.StopStatus{}, err
 	}
-	root := process.RuncRoot
+	root := ""
 	if opts != nil && opts.Root != "" {
 		root = opts.Root
 	}
