@@ -135,9 +135,6 @@ const (
 	grpcAddressEnv  = "GRPC_ADDRESS"
 	namespaceEnv    = "NAMESPACE"
 	maxVersionEnv   = "MAX_SHIM_VERSION"
-	// SocketRootEnv is the environment variable used to override the default
-	// socket root directory used by the shim for its socket path.
-	SocketRootEnv = "SOCKET_ROOT"
 )
 
 func parseFlags() {
