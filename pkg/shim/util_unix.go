@@ -73,7 +73,11 @@ func AdjustOOMScore(pid int) error {
 	return nil
 }
 
-const socketRoot = defaults.DefaultStateDir
+// socketRoot returns the effective default state directory for shim sockets,
+// accounting for any PathPrefix set via the --prefix flag.
+func socketRoot() string {
+	return defaults.Prefix(defaults.DefaultStateDir)
+}
 
 // SocketAddress returns a socket address
 func SocketAddress(ctx context.Context, socketPath, id string, debug bool) (string, error) {
@@ -86,7 +90,7 @@ func SocketAddress(ctx context.Context, socketPath, id string, debug bool) (stri
 		path = filepath.Join(path, "debug")
 	}
 	d := sha256.Sum256([]byte(path))
-	return fmt.Sprintf("unix://%s/%x", filepath.Join(socketRoot, "s"), d), nil
+	return fmt.Sprintf("unix://%s/%x", filepath.Join(socketRoot(), "s"), d), nil
 }
 
 // AnonDialer returns a dialer for a socket

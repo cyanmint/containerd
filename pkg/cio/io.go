@@ -139,7 +139,7 @@ func NewCreator(opts ...Opt) Creator {
 		opt(streams)
 	}
 	if streams.FIFODir == "" {
-		streams.FIFODir = defaults.DefaultFIFODir
+		streams.FIFODir = defaults.Prefix(defaults.DefaultFIFODir)
 	}
 	return func(id string) (IO, error) {
 		fifos, err := NewFIFOSetInDir(streams.FIFODir, id, streams.Terminal)
