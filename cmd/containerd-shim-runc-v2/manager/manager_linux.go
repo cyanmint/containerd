@@ -98,9 +98,6 @@ func newCommand(ctx context.Context, id, containerdAddress, containerdTTRPCAddre
 		"-id", id,
 		"-address", containerdAddress,
 	}
-	if defaults.PathPrefix != "" {
-		args = append(args, "-prefix", defaults.PathPrefix)
-	}
 	if debug {
 		args = append(args, "-debug")
 	}
