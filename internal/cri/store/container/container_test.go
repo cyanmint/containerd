@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	cio "github.com/cyanmint/containerd/v2/internal/cri/io"
-	"github.com/cyanmint/containerd/v2/internal/cri/store/label"
-	"github.com/cyanmint/containerd/v2/internal/cri/store/stats"
+	cio "github.com/containerd/containerd/v2/internal/cri/io"
+	"github.com/containerd/containerd/v2/internal/cri/store/label"
+	"github.com/containerd/containerd/v2/internal/cri/store/stats"
 	"github.com/containerd/errdefs"
 
 	"github.com/opencontainers/selinux/go-selinux"

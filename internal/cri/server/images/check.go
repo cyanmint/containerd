@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/cyanmint/containerd/v2/core/images"
+	"github.com/containerd/containerd/v2/core/images"
 	"github.com/containerd/log"
 	"github.com/containerd/platforms"
 )

@@ -21,7 +21,7 @@ package server
 import (
 	"fmt"
 
-	"github.com/cyanmint/containerd/v2/pkg/blockio"
+	"github.com/containerd/containerd/v2/pkg/blockio"
 	"github.com/containerd/log"
 )
 

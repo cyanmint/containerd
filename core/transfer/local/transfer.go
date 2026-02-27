@@ -27,12 +27,12 @@ import (
 
 	"github.com/containerd/errdefs"
 
-	"github.com/cyanmint/containerd/v2/core/content"
-	"github.com/cyanmint/containerd/v2/core/images"
-	"github.com/cyanmint/containerd/v2/core/leases"
-	"github.com/cyanmint/containerd/v2/core/transfer"
-	"github.com/cyanmint/containerd/v2/core/unpack"
-	"github.com/cyanmint/containerd/v2/pkg/imageverifier"
+	"github.com/containerd/containerd/v2/core/content"
+	"github.com/containerd/containerd/v2/core/images"
+	"github.com/containerd/containerd/v2/core/leases"
+	"github.com/containerd/containerd/v2/core/transfer"
+	"github.com/containerd/containerd/v2/core/unpack"
+	"github.com/containerd/containerd/v2/pkg/imageverifier"
 )
 
 type localTransferService struct {

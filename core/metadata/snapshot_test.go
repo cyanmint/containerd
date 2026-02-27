@@ -24,11 +24,11 @@ import (
 	"testing"
 	"time"
 
-	"github.com/cyanmint/containerd/v2/core/leases"
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/core/snapshots"
-	"github.com/cyanmint/containerd/v2/pkg/filters"
-	"github.com/cyanmint/containerd/v2/pkg/namespaces"
+	"github.com/containerd/containerd/v2/core/leases"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/core/snapshots"
+	"github.com/containerd/containerd/v2/pkg/filters"
+	"github.com/containerd/containerd/v2/pkg/namespaces"
 	"github.com/containerd/errdefs"
 )
 

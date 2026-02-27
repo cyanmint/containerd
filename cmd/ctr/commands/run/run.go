@@ -33,13 +33,13 @@ import (
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log"
 
-	containerd "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
-	"github.com/cyanmint/containerd/v2/cmd/ctr/commands/tasks"
-	"github.com/cyanmint/containerd/v2/core/containers"
-	"github.com/cyanmint/containerd/v2/pkg/cio"
-	clabels "github.com/cyanmint/containerd/v2/pkg/labels"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
+	containerd "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/cmd/ctr/commands"
+	"github.com/containerd/containerd/v2/cmd/ctr/commands/tasks"
+	"github.com/containerd/containerd/v2/core/containers"
+	"github.com/containerd/containerd/v2/pkg/cio"
+	clabels "github.com/containerd/containerd/v2/pkg/labels"
+	"github.com/containerd/containerd/v2/pkg/oci"
 )
 
 func withMounts(cliContext *cli.Context) oci.SpecOpts {

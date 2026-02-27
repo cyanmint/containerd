@@ -25,8 +25,8 @@ import (
 	"github.com/containerd/errdefs"
 	bolt "go.etcd.io/bbolt"
 
-	"github.com/cyanmint/containerd/v2/core/leases"
-	"github.com/cyanmint/containerd/v2/core/metadata/boltutil"
+	"github.com/containerd/containerd/v2/core/leases"
+	"github.com/containerd/containerd/v2/core/metadata/boltutil"
 )
 
 func TestLeases(t *testing.T) {

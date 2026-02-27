@@ -31,10 +31,10 @@ import (
 	"github.com/stretchr/testify/require"
 	criruntime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	containerd "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/integration/images"
-	snpkg "github.com/cyanmint/containerd/v2/pkg/snapshotters"
-	"github.com/cyanmint/containerd/v2/plugins"
+	containerd "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/integration/images"
+	snpkg "github.com/containerd/containerd/v2/pkg/snapshotters"
+	"github.com/containerd/containerd/v2/plugins"
 )
 
 func TestRuntimeHandlerUnpackWithSnapshotLabels(t *testing.T) {

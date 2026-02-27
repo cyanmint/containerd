@@ -24,10 +24,10 @@ import (
 	"time"
 
 	eventtypes "github.com/containerd/containerd/api/events"
-	containerstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
-	ctrdutil "github.com/cyanmint/containerd/v2/internal/cri/util"
-	"github.com/cyanmint/containerd/v2/pkg/protobuf"
-	"github.com/cyanmint/containerd/v2/pkg/tracing"
+	containerstore "github.com/containerd/containerd/v2/internal/cri/store/container"
+	ctrdutil "github.com/containerd/containerd/v2/internal/cri/util"
+	"github.com/containerd/containerd/v2/pkg/protobuf"
+	"github.com/containerd/containerd/v2/pkg/tracing"
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log"
 

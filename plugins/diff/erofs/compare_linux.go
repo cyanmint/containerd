@@ -31,14 +31,14 @@ import (
 	digest "github.com/opencontainers/go-digest"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 
-	"github.com/cyanmint/containerd/v2/core/content"
-	"github.com/cyanmint/containerd/v2/core/diff"
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/internal/erofsutils"
-	"github.com/cyanmint/containerd/v2/pkg/archive"
-	"github.com/cyanmint/containerd/v2/pkg/archive/compression"
-	"github.com/cyanmint/containerd/v2/pkg/epoch"
-	"github.com/cyanmint/containerd/v2/pkg/labels"
+	"github.com/containerd/containerd/v2/core/content"
+	"github.com/containerd/containerd/v2/core/diff"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/internal/erofsutils"
+	"github.com/containerd/containerd/v2/pkg/archive"
+	"github.com/containerd/containerd/v2/pkg/archive/compression"
+	"github.com/containerd/containerd/v2/pkg/epoch"
+	"github.com/containerd/containerd/v2/pkg/labels"
 )
 
 func writeDiff(ctx context.Context, w io.Writer, lower []mount.Mount, upperRoot string) error {

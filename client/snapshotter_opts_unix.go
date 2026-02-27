@@ -24,8 +24,8 @@ import (
 	"fmt"
 	"slices"
 
-	"github.com/cyanmint/containerd/v2/core/snapshots"
-	"github.com/cyanmint/containerd/v2/internal/userns"
+	"github.com/containerd/containerd/v2/core/snapshots"
+	"github.com/containerd/containerd/v2/internal/userns"
 	"github.com/opencontainers/go-digest"
 	"github.com/opencontainers/runtime-spec/specs-go"
 )

@@ -20,9 +20,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
-	"github.com/cyanmint/containerd/v2/core/images/converter"
-	"github.com/cyanmint/containerd/v2/core/images/converter/uncompress"
+	"github.com/containerd/containerd/v2/cmd/ctr/commands"
+	"github.com/containerd/containerd/v2/core/images/converter"
+	"github.com/containerd/containerd/v2/core/images/converter/uncompress"
 	"github.com/containerd/platforms"
 	"github.com/urfave/cli/v2"
 )

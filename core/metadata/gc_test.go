@@ -35,8 +35,8 @@ import (
 	"github.com/stretchr/testify/require"
 	bolt "go.etcd.io/bbolt"
 
-	"github.com/cyanmint/containerd/v2/core/metadata/boltutil"
-	"github.com/cyanmint/containerd/v2/pkg/gc"
+	"github.com/containerd/containerd/v2/core/metadata/boltutil"
+	"github.com/containerd/containerd/v2/pkg/gc"
 )
 
 func TestResourceMax(t *testing.T) {

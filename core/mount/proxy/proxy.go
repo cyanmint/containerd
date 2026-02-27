@@ -28,8 +28,8 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/cyanmint/containerd/v2/core/mount"
-	ptypes "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
+	"github.com/containerd/containerd/v2/core/mount"
+	ptypes "github.com/containerd/containerd/v2/pkg/protobuf/types"
 )
 
 type proxyMounts struct {

@@ -20,10 +20,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/cyanmint/containerd/v2/core/diff"
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/core/snapshots"
-	"github.com/cyanmint/containerd/v2/internal/cleanup"
+	"github.com/containerd/containerd/v2/core/diff"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/core/snapshots"
+	"github.com/containerd/containerd/v2/internal/cleanup"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 )
 

@@ -22,12 +22,12 @@ import (
 	"syscall"
 	"testing"
 
-	containerd "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/core/images"
-	"github.com/cyanmint/containerd/v2/core/snapshots"
-	"github.com/cyanmint/containerd/v2/internal/userns"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
-	"github.com/cyanmint/containerd/v2/plugins/snapshots/overlay/overlayutils"
+	containerd "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/core/images"
+	"github.com/containerd/containerd/v2/core/snapshots"
+	"github.com/containerd/containerd/v2/internal/userns"
+	"github.com/containerd/containerd/v2/pkg/oci"
+	"github.com/containerd/containerd/v2/plugins/snapshots/overlay/overlayutils"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	"golang.org/x/sync/semaphore"
 )

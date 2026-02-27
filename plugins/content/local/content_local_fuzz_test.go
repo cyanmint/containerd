@@ -27,7 +27,7 @@ import (
 
 	"github.com/opencontainers/go-digest"
 
-	"github.com/cyanmint/containerd/v2/core/content"
+	"github.com/containerd/containerd/v2/core/content"
 )
 
 func FuzzContentStoreWriter(f *testing.F) {

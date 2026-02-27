@@ -19,11 +19,11 @@ package sandbox
 import (
 	"sync"
 
-	"github.com/cyanmint/containerd/v2/internal/cri/store"
-	"github.com/cyanmint/containerd/v2/internal/cri/store/label"
-	"github.com/cyanmint/containerd/v2/internal/cri/store/stats"
-	"github.com/cyanmint/containerd/v2/internal/truncindex"
-	"github.com/cyanmint/containerd/v2/pkg/netns"
+	"github.com/containerd/containerd/v2/internal/cri/store"
+	"github.com/containerd/containerd/v2/internal/cri/store/label"
+	"github.com/containerd/containerd/v2/internal/cri/store/stats"
+	"github.com/containerd/containerd/v2/internal/truncindex"
+	"github.com/containerd/containerd/v2/pkg/netns"
 	"github.com/containerd/errdefs"
 )
 

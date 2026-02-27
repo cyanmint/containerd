@@ -33,12 +33,12 @@ import (
 	"google.golang.org/grpc/status"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/cyanmint/containerd/v2/core/streaming"
-	"github.com/cyanmint/containerd/v2/core/transfer"
-	tplugins "github.com/cyanmint/containerd/v2/core/transfer/plugins"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
-	ptypes "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/core/streaming"
+	"github.com/containerd/containerd/v2/core/transfer"
+	tplugins "github.com/containerd/containerd/v2/core/transfer/plugins"
+	"github.com/containerd/containerd/v2/pkg/oci"
+	ptypes "github.com/containerd/containerd/v2/pkg/protobuf/types"
+	"github.com/containerd/containerd/v2/plugins"
 )
 
 var empty = &ptypes.Empty{}

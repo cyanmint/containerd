@@ -34,9 +34,9 @@ import (
 	"github.com/containerd/containerd/api/types"
 	"github.com/containerd/errdefs"
 
-	containerstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
-	"github.com/cyanmint/containerd/v2/internal/cri/store/stats"
-	"github.com/cyanmint/containerd/v2/pkg/protobuf"
+	containerstore "github.com/containerd/containerd/v2/internal/cri/store/container"
+	"github.com/containerd/containerd/v2/internal/cri/store/stats"
+	"github.com/containerd/containerd/v2/pkg/protobuf"
 )
 
 // ListContainerStats returns stats of all running containers.

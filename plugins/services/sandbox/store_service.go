@@ -28,8 +28,8 @@ import (
 	"github.com/containerd/plugin"
 	"github.com/containerd/plugin/registry"
 
-	"github.com/cyanmint/containerd/v2/core/sandbox"
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/core/sandbox"
+	"github.com/containerd/containerd/v2/plugins"
 )
 
 func init() {

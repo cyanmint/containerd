@@ -29,15 +29,15 @@ import (
 	"github.com/containerd/plugin"
 	"github.com/containerd/plugin/registry"
 
-	"github.com/cyanmint/containerd/v2/core/images"
-	"github.com/cyanmint/containerd/v2/core/metadata"
-	"github.com/cyanmint/containerd/v2/pkg/epoch"
-	"github.com/cyanmint/containerd/v2/pkg/gc"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
-	ptypes "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
-	"github.com/cyanmint/containerd/v2/plugins"
-	"github.com/cyanmint/containerd/v2/plugins/services"
-	"github.com/cyanmint/containerd/v2/plugins/services/warning"
+	"github.com/containerd/containerd/v2/core/images"
+	"github.com/containerd/containerd/v2/core/metadata"
+	"github.com/containerd/containerd/v2/pkg/epoch"
+	"github.com/containerd/containerd/v2/pkg/gc"
+	"github.com/containerd/containerd/v2/pkg/oci"
+	ptypes "github.com/containerd/containerd/v2/pkg/protobuf/types"
+	"github.com/containerd/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/plugins/services"
+	"github.com/containerd/containerd/v2/plugins/services/warning"
 )
 
 var empty = &ptypes.Empty{}

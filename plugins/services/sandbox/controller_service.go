@@ -33,10 +33,10 @@ import (
 	"github.com/containerd/plugin"
 	"github.com/containerd/plugin/registry"
 
-	"github.com/cyanmint/containerd/v2/core/events"
-	"github.com/cyanmint/containerd/v2/core/sandbox"
-	"github.com/cyanmint/containerd/v2/pkg/protobuf"
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/core/events"
+	"github.com/containerd/containerd/v2/core/sandbox"
+	"github.com/containerd/containerd/v2/pkg/protobuf"
+	"github.com/containerd/containerd/v2/plugins"
 )
 
 func init() {

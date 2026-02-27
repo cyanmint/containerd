@@ -35,11 +35,11 @@ import (
 	ver "github.com/opencontainers/image-spec/specs-go"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 
-	"github.com/cyanmint/containerd/v2/core/containers"
-	"github.com/cyanmint/containerd/v2/core/images"
-	"github.com/cyanmint/containerd/v2/pkg/cio"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
-	"github.com/cyanmint/containerd/v2/pkg/tracing"
+	"github.com/containerd/containerd/v2/core/containers"
+	"github.com/containerd/containerd/v2/core/images"
+	"github.com/containerd/containerd/v2/pkg/cio"
+	"github.com/containerd/containerd/v2/pkg/oci"
+	"github.com/containerd/containerd/v2/pkg/tracing"
 )
 
 const (

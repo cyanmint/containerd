@@ -23,7 +23,7 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/cyanmint/containerd/v2/pkg/kernelversion"
+	"github.com/containerd/containerd/v2/pkg/kernelversion"
 	"github.com/opencontainers/runtime-spec/specs-go"
 )
 

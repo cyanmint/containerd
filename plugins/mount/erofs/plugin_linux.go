@@ -29,9 +29,9 @@ import (
 	"github.com/containerd/plugin"
 	"github.com/containerd/plugin/registry"
 
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/internal/fsmount"
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/internal/fsmount"
+	"github.com/containerd/containerd/v2/plugins"
 	"github.com/containerd/errdefs"
 
 	"golang.org/x/sys/unix"

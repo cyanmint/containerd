@@ -19,13 +19,13 @@ package metadata
 import (
 	"strings"
 
-	"github.com/cyanmint/containerd/v2/core/containers"
-	"github.com/cyanmint/containerd/v2/core/content"
-	"github.com/cyanmint/containerd/v2/core/images"
-	"github.com/cyanmint/containerd/v2/core/leases"
-	"github.com/cyanmint/containerd/v2/core/sandbox"
-	"github.com/cyanmint/containerd/v2/core/snapshots"
-	"github.com/cyanmint/containerd/v2/pkg/filters"
+	"github.com/containerd/containerd/v2/core/containers"
+	"github.com/containerd/containerd/v2/core/content"
+	"github.com/containerd/containerd/v2/core/images"
+	"github.com/containerd/containerd/v2/core/leases"
+	"github.com/containerd/containerd/v2/core/sandbox"
+	"github.com/containerd/containerd/v2/core/snapshots"
+	"github.com/containerd/containerd/v2/pkg/filters"
 )
 
 func adaptImage(o interface{}) filters.Adaptor {

@@ -44,17 +44,17 @@ import (
 	"github.com/containerd/ttrpc"
 	"github.com/containerd/typeurl/v2"
 
-	"github.com/cyanmint/containerd/v2/core/events/exchange"
-	"github.com/cyanmint/containerd/v2/core/runtime"
-	"github.com/cyanmint/containerd/v2/pkg/archive"
-	"github.com/cyanmint/containerd/v2/pkg/archive/compression"
-	"github.com/cyanmint/containerd/v2/pkg/atomicfile"
-	"github.com/cyanmint/containerd/v2/pkg/dialer"
-	"github.com/cyanmint/containerd/v2/pkg/identifiers"
-	"github.com/cyanmint/containerd/v2/pkg/protobuf"
-	ptypes "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
-	client "github.com/cyanmint/containerd/v2/pkg/shim"
-	"github.com/cyanmint/containerd/v2/pkg/timeout"
+	"github.com/containerd/containerd/v2/core/events/exchange"
+	"github.com/containerd/containerd/v2/core/runtime"
+	"github.com/containerd/containerd/v2/pkg/archive"
+	"github.com/containerd/containerd/v2/pkg/archive/compression"
+	"github.com/containerd/containerd/v2/pkg/atomicfile"
+	"github.com/containerd/containerd/v2/pkg/dialer"
+	"github.com/containerd/containerd/v2/pkg/identifiers"
+	"github.com/containerd/containerd/v2/pkg/protobuf"
+	ptypes "github.com/containerd/containerd/v2/pkg/protobuf/types"
+	client "github.com/containerd/containerd/v2/pkg/shim"
+	"github.com/containerd/containerd/v2/pkg/timeout"
 )
 
 const (

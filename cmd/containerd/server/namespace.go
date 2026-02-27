@@ -19,7 +19,7 @@ package server
 import (
 	"context"
 
-	"github.com/cyanmint/containerd/v2/pkg/namespaces"
+	"github.com/containerd/containerd/v2/pkg/namespaces"
 	"google.golang.org/grpc"
 )
 

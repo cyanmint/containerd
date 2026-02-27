@@ -21,7 +21,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/cyanmint/containerd/v2/pkg/oci"
+	"github.com/containerd/containerd/v2/pkg/oci"
 	runtimespec "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

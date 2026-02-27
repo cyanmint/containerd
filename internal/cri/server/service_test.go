@@ -25,16 +25,16 @@ import (
 	imagespec "github.com/opencontainers/image-spec/specs-go/v1"
 
 	"github.com/containerd/containerd/api/types"
-	containerd "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/core/sandbox"
-	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
-	containerstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
-	"github.com/cyanmint/containerd/v2/internal/cri/store/label"
-	sandboxstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
-	servertesting "github.com/cyanmint/containerd/v2/internal/cri/testing"
-	"github.com/cyanmint/containerd/v2/internal/registrar"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
-	ostesting "github.com/cyanmint/containerd/v2/pkg/os/testing"
+	containerd "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/core/sandbox"
+	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
+	containerstore "github.com/containerd/containerd/v2/internal/cri/store/container"
+	"github.com/containerd/containerd/v2/internal/cri/store/label"
+	sandboxstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
+	servertesting "github.com/containerd/containerd/v2/internal/cri/testing"
+	"github.com/containerd/containerd/v2/internal/registrar"
+	"github.com/containerd/containerd/v2/pkg/oci"
+	ostesting "github.com/containerd/containerd/v2/pkg/os/testing"
 )
 
 type fakeSandboxService struct{}

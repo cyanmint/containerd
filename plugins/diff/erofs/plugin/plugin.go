@@ -23,10 +23,10 @@ import (
 	"github.com/containerd/plugin"
 	"github.com/containerd/plugin/registry"
 
-	"github.com/cyanmint/containerd/v2/core/metadata"
-	"github.com/cyanmint/containerd/v2/internal/erofsutils"
-	"github.com/cyanmint/containerd/v2/plugins"
-	"github.com/cyanmint/containerd/v2/plugins/diff/erofs"
+	"github.com/containerd/containerd/v2/core/metadata"
+	"github.com/containerd/containerd/v2/internal/erofsutils"
+	"github.com/containerd/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/plugins/diff/erofs"
 )
 
 // Config represents configuration for the erofs plugin.

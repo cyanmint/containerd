@@ -22,8 +22,8 @@ import (
 	"context"
 	"time"
 
-	containerstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
-	"github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
+	containerstore "github.com/containerd/containerd/v2/internal/cri/store/container"
+	"github.com/containerd/containerd/v2/internal/cri/store/sandbox"
 	"github.com/containerd/errdefs"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

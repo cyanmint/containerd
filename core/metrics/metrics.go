@@ -19,8 +19,8 @@ package metrics
 import (
 	"time"
 
-	"github.com/cyanmint/containerd/v2/pkg/timeout"
-	"github.com/cyanmint/containerd/v2/version"
+	"github.com/containerd/containerd/v2/pkg/timeout"
+	"github.com/containerd/containerd/v2/version"
 	goMetrics "github.com/docker/go-metrics"
 )
 

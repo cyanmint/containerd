@@ -20,9 +20,9 @@ import (
 	"fmt"
 	"testing"
 
-	. "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/core/containers"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
+	. "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/core/containers"
+	"github.com/containerd/containerd/v2/pkg/oci"
 )
 
 func BenchmarkContainerCreate(b *testing.B) {

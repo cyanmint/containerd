@@ -29,8 +29,8 @@ import (
 	"github.com/containerd/platforms"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 
-	"github.com/cyanmint/containerd/v2/core/content"
-	"github.com/cyanmint/containerd/v2/core/images"
+	"github.com/containerd/containerd/v2/core/content"
+	"github.com/containerd/containerd/v2/core/images"
 )
 
 // TreeFormat is used to format tree based output using 4 values.

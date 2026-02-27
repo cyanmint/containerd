@@ -20,10 +20,10 @@ package server
 
 import (
 	"github.com/containerd/containerd/api/services/tasks/v1"
-	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
-	containerstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
-	sandboxstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
-	"github.com/cyanmint/containerd/v2/internal/cri/store/stats"
+	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
+	containerstore "github.com/containerd/containerd/v2/internal/cri/store/container"
+	sandboxstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
+	"github.com/containerd/containerd/v2/internal/cri/store/stats"
 )
 
 // StatsCollector is a stub for non-Linux platforms.

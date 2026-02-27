@@ -25,11 +25,11 @@ import (
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/cyanmint/containerd/v2/core/diff"
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/pkg/epoch"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
-	ptypes "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
+	"github.com/containerd/containerd/v2/core/diff"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/pkg/epoch"
+	"github.com/containerd/containerd/v2/pkg/oci"
+	ptypes "github.com/containerd/containerd/v2/pkg/protobuf/types"
 )
 
 // NewDiffApplier returns a new comparer and applier which communicates

@@ -20,8 +20,8 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
-	"github.com/cyanmint/containerd/v2/version"
+	"github.com/containerd/containerd/v2/cmd/ctr/commands"
+	"github.com/containerd/containerd/v2/version"
 	"github.com/urfave/cli/v2"
 )
 

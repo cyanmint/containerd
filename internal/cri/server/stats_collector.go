@@ -32,11 +32,11 @@ import (
 	"github.com/containerd/typeurl/v2"
 
 	"github.com/containerd/containerd/api/services/tasks/v1"
-	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
-	containerstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
-	sandboxstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
-	"github.com/cyanmint/containerd/v2/internal/cri/store/stats"
-	ctrdutil "github.com/cyanmint/containerd/v2/internal/cri/util"
+	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
+	containerstore "github.com/containerd/containerd/v2/internal/cri/store/container"
+	sandboxstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
+	"github.com/containerd/containerd/v2/internal/cri/store/stats"
+	ctrdutil "github.com/containerd/containerd/v2/internal/cri/util"
 )
 
 const (

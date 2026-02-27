@@ -24,9 +24,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	"github.com/cyanmint/containerd/v2/contrib/seccomp"
-	"github.com/cyanmint/containerd/v2/internal/cri/util"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
+	"github.com/containerd/containerd/v2/contrib/seccomp"
+	"github.com/containerd/containerd/v2/internal/cri/util"
+	"github.com/containerd/containerd/v2/pkg/oci"
 )
 
 func TestGenerateSeccompSecurityProfileSpecOpts(t *testing.T) {

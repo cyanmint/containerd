@@ -25,7 +25,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/cyanmint/containerd/v2/core/remotes"
+	"github.com/containerd/containerd/v2/core/remotes"
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log"
 	digest "github.com/opencontainers/go-digest"

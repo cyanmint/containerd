@@ -20,9 +20,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
-	"github.com/cyanmint/containerd/v2/core/leases"
-	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/cmd/ctr/commands"
+	"github.com/containerd/containerd/v2/core/leases"
+	"github.com/containerd/containerd/v2/core/mount"
 	"github.com/containerd/errdefs"
 	"github.com/urfave/cli/v2"
 )

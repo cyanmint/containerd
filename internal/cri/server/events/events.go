@@ -27,9 +27,9 @@ import (
 	"github.com/containerd/typeurl/v2"
 
 	eventtypes "github.com/containerd/containerd/api/events"
-	"github.com/cyanmint/containerd/v2/core/events"
-	"github.com/cyanmint/containerd/v2/internal/cri/clock"
-	"github.com/cyanmint/containerd/v2/internal/cri/constants"
+	"github.com/containerd/containerd/v2/core/events"
+	"github.com/containerd/containerd/v2/internal/cri/clock"
+	"github.com/containerd/containerd/v2/internal/cri/constants"
 )
 
 const (

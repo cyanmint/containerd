@@ -19,7 +19,7 @@ package integration
 import (
 	"testing"
 
-	"github.com/cyanmint/containerd/v2/integration/images"
+	"github.com/containerd/containerd/v2/integration/images"
 	"github.com/stretchr/testify/require"
 )
 

@@ -23,11 +23,11 @@ import (
 
 	"github.com/containerd/typeurl/v2"
 
-	containerd "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/core/containers"
-	"github.com/cyanmint/containerd/v2/core/sandbox"
-	"github.com/cyanmint/containerd/v2/internal/cri/server/podsandbox/types"
-	critypes "github.com/cyanmint/containerd/v2/internal/cri/types"
+	containerd "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/core/containers"
+	"github.com/containerd/containerd/v2/core/sandbox"
+	"github.com/containerd/containerd/v2/internal/cri/server/podsandbox/types"
+	critypes "github.com/containerd/containerd/v2/internal/cri/types"
 	"github.com/containerd/errdefs"
 )
 

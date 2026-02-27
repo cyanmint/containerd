@@ -35,10 +35,10 @@ import (
 	"github.com/containerd/typeurl/v2"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 
-	"github.com/cyanmint/containerd/v2/core/streaming"
-	"github.com/cyanmint/containerd/v2/core/transfer"
-	tstreaming "github.com/cyanmint/containerd/v2/core/transfer/streaming"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
+	"github.com/containerd/containerd/v2/core/streaming"
+	"github.com/containerd/containerd/v2/core/transfer"
+	tstreaming "github.com/containerd/containerd/v2/core/transfer/streaming"
+	"github.com/containerd/containerd/v2/pkg/oci"
 )
 
 type proxyTransferrer struct {

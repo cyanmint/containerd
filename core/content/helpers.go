@@ -25,7 +25,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/cyanmint/containerd/v2/internal/randutil"
+	"github.com/containerd/containerd/v2/internal/randutil"
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log"
 	"github.com/opencontainers/go-digest"

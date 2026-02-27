@@ -22,10 +22,10 @@ import (
 	"sync/atomic"
 	"testing"
 
-	. "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/core/content"
-	"github.com/cyanmint/containerd/v2/core/content/testsuite"
-	"github.com/cyanmint/containerd/v2/pkg/namespaces"
+	. "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/core/content"
+	"github.com/containerd/containerd/v2/core/content/testsuite"
+	"github.com/containerd/containerd/v2/pkg/namespaces"
 	"github.com/containerd/errdefs"
 )
 

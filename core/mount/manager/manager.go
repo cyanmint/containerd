@@ -35,12 +35,12 @@ import (
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log"
 
-	"github.com/cyanmint/containerd/v2/core/leases"
-	"github.com/cyanmint/containerd/v2/core/metadata"
-	"github.com/cyanmint/containerd/v2/core/metadata/boltutil"
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/pkg/gc"
-	"github.com/cyanmint/containerd/v2/pkg/namespaces"
+	"github.com/containerd/containerd/v2/core/leases"
+	"github.com/containerd/containerd/v2/core/metadata"
+	"github.com/containerd/containerd/v2/core/metadata/boltutil"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/pkg/gc"
+	"github.com/containerd/containerd/v2/pkg/namespaces"
 )
 
 type BoltManager interface {

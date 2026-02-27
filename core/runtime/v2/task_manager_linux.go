@@ -20,8 +20,8 @@ import (
 	"context"
 
 	"github.com/containerd/cgroups/v3"
-	"github.com/cyanmint/containerd/v2/pkg/deprecation"
-	"github.com/cyanmint/containerd/v2/plugins/services/warning"
+	"github.com/containerd/containerd/v2/pkg/deprecation"
+	"github.com/containerd/containerd/v2/plugins/services/warning"
 )
 
 func emitPlatformWarnings(ctx context.Context, warnings warning.Service) {

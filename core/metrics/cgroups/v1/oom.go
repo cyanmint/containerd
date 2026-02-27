@@ -25,7 +25,7 @@ import (
 	"golang.org/x/sys/unix"
 
 	cgroups "github.com/containerd/cgroups/v3/cgroup1"
-	"github.com/cyanmint/containerd/v2/pkg/sys"
+	"github.com/containerd/containerd/v2/pkg/sys"
 	"github.com/containerd/log"
 	metrics "github.com/docker/go-metrics"
 	"github.com/prometheus/client_golang/prometheus"

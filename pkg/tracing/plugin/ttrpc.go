@@ -17,7 +17,7 @@
 package plugin
 
 import (
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/plugins"
 	"github.com/containerd/otelttrpc"
 	"github.com/containerd/plugin"
 	"github.com/containerd/plugin/registry"

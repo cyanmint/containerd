@@ -42,15 +42,15 @@ import (
 	specs "github.com/opencontainers/runtime-spec/specs-go"
 	"github.com/stretchr/testify/require"
 
-	. "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/core/containers"
-	"github.com/cyanmint/containerd/v2/core/images"
-	_ "github.com/cyanmint/containerd/v2/core/runtime"
-	"github.com/cyanmint/containerd/v2/pkg/cio"
-	"github.com/cyanmint/containerd/v2/pkg/namespaces"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
-	gogotypes "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
-	"github.com/cyanmint/containerd/v2/plugins"
+	. "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/core/containers"
+	"github.com/containerd/containerd/v2/core/images"
+	_ "github.com/containerd/containerd/v2/core/runtime"
+	"github.com/containerd/containerd/v2/pkg/cio"
+	"github.com/containerd/containerd/v2/pkg/namespaces"
+	"github.com/containerd/containerd/v2/pkg/oci"
+	gogotypes "github.com/containerd/containerd/v2/pkg/protobuf/types"
+	"github.com/containerd/containerd/v2/plugins"
 )
 
 func empty() cio.Creator {

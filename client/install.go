@@ -26,10 +26,10 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/cyanmint/containerd/v2/core/content"
-	"github.com/cyanmint/containerd/v2/core/images"
-	"github.com/cyanmint/containerd/v2/pkg/archive"
-	"github.com/cyanmint/containerd/v2/pkg/archive/compression"
+	"github.com/containerd/containerd/v2/core/content"
+	"github.com/containerd/containerd/v2/core/images"
+	"github.com/containerd/containerd/v2/pkg/archive"
+	"github.com/containerd/containerd/v2/pkg/archive/compression"
 )
 
 // Install a binary image into the opt service.

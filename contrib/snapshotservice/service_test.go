@@ -21,8 +21,8 @@ import (
 	"testing"
 
 	snapshotsapi "github.com/containerd/containerd/api/services/snapshots/v1"
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/core/snapshots"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/core/snapshots"
 )
 
 // mockSnapshotter is a mock implementation of snapshots.Snapshotter

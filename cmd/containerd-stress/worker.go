@@ -23,9 +23,9 @@ import (
 	"sync"
 	"time"
 
-	containerd "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/pkg/cio"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
+	containerd "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/pkg/cio"
+	"github.com/containerd/containerd/v2/pkg/oci"
 	"github.com/containerd/log"
 )
 

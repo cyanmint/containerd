@@ -33,16 +33,16 @@ import (
 	"github.com/containerd/plugin/registry"
 	"github.com/containerd/typeurl/v2"
 
-	"github.com/cyanmint/containerd/v2/core/containers"
-	"github.com/cyanmint/containerd/v2/core/events/exchange"
-	"github.com/cyanmint/containerd/v2/core/metadata"
-	"github.com/cyanmint/containerd/v2/core/runtime"
-	"github.com/cyanmint/containerd/v2/core/sandbox"
-	"github.com/cyanmint/containerd/v2/pkg/namespaces"
-	shimbinary "github.com/cyanmint/containerd/v2/pkg/shim"
-	"github.com/cyanmint/containerd/v2/pkg/timeout"
-	"github.com/cyanmint/containerd/v2/plugins"
-	"github.com/cyanmint/containerd/v2/version"
+	"github.com/containerd/containerd/v2/core/containers"
+	"github.com/containerd/containerd/v2/core/events/exchange"
+	"github.com/containerd/containerd/v2/core/metadata"
+	"github.com/containerd/containerd/v2/core/runtime"
+	"github.com/containerd/containerd/v2/core/sandbox"
+	"github.com/containerd/containerd/v2/pkg/namespaces"
+	shimbinary "github.com/containerd/containerd/v2/pkg/shim"
+	"github.com/containerd/containerd/v2/pkg/timeout"
+	"github.com/containerd/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/version"
 )
 
 // ShimConfig for the shim

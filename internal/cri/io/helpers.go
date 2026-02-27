@@ -33,11 +33,11 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	streamingapi "github.com/cyanmint/containerd/v2/core/streaming"
-	"github.com/cyanmint/containerd/v2/core/streaming/proxy"
-	"github.com/cyanmint/containerd/v2/core/transfer/streaming"
-	"github.com/cyanmint/containerd/v2/pkg/cio"
-	"github.com/cyanmint/containerd/v2/pkg/shim"
+	streamingapi "github.com/containerd/containerd/v2/core/streaming"
+	"github.com/containerd/containerd/v2/core/streaming/proxy"
+	"github.com/containerd/containerd/v2/core/transfer/streaming"
+	"github.com/containerd/containerd/v2/pkg/cio"
+	"github.com/containerd/containerd/v2/pkg/shim"
 )
 
 // AttachOptions specifies how to attach to a container.

@@ -27,10 +27,10 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/core/mount/proxy"
-	ptypes "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/core/mount/proxy"
+	ptypes "github.com/containerd/containerd/v2/pkg/protobuf/types"
+	"github.com/containerd/containerd/v2/plugins"
 )
 
 var empty = &ptypes.Empty{}

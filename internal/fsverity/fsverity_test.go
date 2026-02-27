@@ -28,7 +28,7 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/cyanmint/containerd/v2/pkg/testutil"
+	"github.com/containerd/containerd/v2/pkg/testutil"
 	"golang.org/x/sys/unix"
 )
 

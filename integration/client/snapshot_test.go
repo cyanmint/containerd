@@ -20,10 +20,10 @@ import (
 	"context"
 	"testing"
 
-	. "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/core/snapshots"
-	"github.com/cyanmint/containerd/v2/core/snapshots/testsuite"
-	"github.com/cyanmint/containerd/v2/defaults"
+	. "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/core/snapshots"
+	"github.com/containerd/containerd/v2/core/snapshots/testsuite"
+	"github.com/containerd/containerd/v2/defaults"
 )
 
 func newSnapshotter(ctx context.Context, root string) (snapshots.Snapshotter, func() error, error) {

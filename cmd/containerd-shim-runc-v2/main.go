@@ -21,9 +21,9 @@ package main
 import (
 	"context"
 
-	"github.com/cyanmint/containerd/v2/cmd/containerd-shim-runc-v2/manager"
-	_ "github.com/cyanmint/containerd/v2/cmd/containerd-shim-runc-v2/task/plugin"
-	"github.com/cyanmint/containerd/v2/pkg/shim"
+	"github.com/containerd/containerd/v2/cmd/containerd-shim-runc-v2/manager"
+	_ "github.com/containerd/containerd/v2/cmd/containerd-shim-runc-v2/task/plugin"
+	"github.com/containerd/containerd/v2/pkg/shim"
 )
 
 func main() {

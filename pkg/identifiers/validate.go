@@ -27,7 +27,7 @@ package identifiers
 import (
 	"fmt"
 
-	"github.com/cyanmint/containerd/v2/internal/lazyregexp"
+	"github.com/containerd/containerd/v2/internal/lazyregexp"
 	"github.com/containerd/errdefs"
 )
 

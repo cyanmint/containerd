@@ -23,8 +23,8 @@ import (
 	"io"
 	"os"
 
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/pkg/archive"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/pkg/archive"
 )
 
 func apply(ctx context.Context, mounts []mount.Mount, r io.Reader, _sync bool) error {

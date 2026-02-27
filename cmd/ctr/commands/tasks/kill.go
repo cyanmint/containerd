@@ -21,8 +21,8 @@ import (
 	"errors"
 	"fmt"
 
-	containerd "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
+	containerd "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/cmd/ctr/commands"
 	gocni "github.com/containerd/go-cni"
 	"github.com/containerd/log"
 	"github.com/containerd/typeurl/v2"

@@ -23,7 +23,7 @@ import (
 	"io"
 
 	transferapi "github.com/containerd/containerd/api/types/transfer"
-	"github.com/cyanmint/containerd/v2/core/streaming"
+	"github.com/containerd/containerd/v2/core/streaming"
 	"github.com/containerd/typeurl/v2"
 )
 

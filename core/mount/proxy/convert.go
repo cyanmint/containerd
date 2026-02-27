@@ -22,7 +22,7 @@ import (
 	"github.com/containerd/containerd/api/types"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 
-	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/core/mount"
 )
 
 func ActivationInfoToProto(a mount.ActivationInfo) *types.ActivationInfo {

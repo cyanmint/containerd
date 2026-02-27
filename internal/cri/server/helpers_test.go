@@ -26,12 +26,12 @@ import (
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
 	runcoptions "github.com/containerd/containerd/api/types/runc/options"
-	"github.com/cyanmint/containerd/v2/core/containers"
-	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
-	containerstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
-	"github.com/cyanmint/containerd/v2/pkg/protobuf/types"
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/core/containers"
+	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
+	containerstore "github.com/containerd/containerd/v2/internal/cri/store/container"
+	"github.com/containerd/containerd/v2/pkg/oci"
+	"github.com/containerd/containerd/v2/pkg/protobuf/types"
+	"github.com/containerd/containerd/v2/plugins"
 	"github.com/containerd/typeurl/v2"
 
 	runtimespec "github.com/opencontainers/runtime-spec/specs-go"

@@ -22,7 +22,7 @@ import (
 	"time"
 
 	"github.com/containerd/console"
-	"github.com/cyanmint/containerd/v2/pkg/stdio"
+	"github.com/containerd/containerd/v2/pkg/stdio"
 )
 
 // Process on a system

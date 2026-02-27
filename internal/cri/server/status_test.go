@@ -23,8 +23,8 @@ import (
 	"unsafe"
 
 	"github.com/containerd/containerd/api/services/introspection/v1"
-	containerd "github.com/cyanmint/containerd/v2/client"
-	coreintrospection "github.com/cyanmint/containerd/v2/core/introspection"
+	containerd "github.com/containerd/containerd/v2/client"
+	coreintrospection "github.com/containerd/containerd/v2/core/introspection"
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/assert"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"

@@ -25,13 +25,13 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	containerd "github.com/cyanmint/containerd/v2/client"
-	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
-	"github.com/cyanmint/containerd/v2/core/diff"
-	"github.com/cyanmint/containerd/v2/core/images/archive"
-	"github.com/cyanmint/containerd/v2/core/transfer"
-	tarchive "github.com/cyanmint/containerd/v2/core/transfer/archive"
-	"github.com/cyanmint/containerd/v2/core/transfer/image"
+	containerd "github.com/containerd/containerd/v2/client"
+	"github.com/containerd/containerd/v2/cmd/ctr/commands"
+	"github.com/containerd/containerd/v2/core/diff"
+	"github.com/containerd/containerd/v2/core/images/archive"
+	"github.com/containerd/containerd/v2/core/transfer"
+	tarchive "github.com/containerd/containerd/v2/core/transfer/archive"
+	"github.com/containerd/containerd/v2/core/transfer/image"
 	"github.com/containerd/log"
 	"github.com/containerd/platforms"
 )

@@ -22,8 +22,8 @@ package server
 import (
 	"context"
 
-	srvconfig "github.com/cyanmint/containerd/v2/cmd/containerd/server/config"
-	"github.com/cyanmint/containerd/v2/internal/wintls"
+	srvconfig "github.com/containerd/containerd/v2/cmd/containerd/server/config"
+	"github.com/containerd/containerd/v2/internal/wintls"
 	"github.com/containerd/ttrpc"
 )
 

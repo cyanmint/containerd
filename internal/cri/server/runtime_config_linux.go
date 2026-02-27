@@ -21,8 +21,8 @@ import (
 	"sort"
 
 	runcoptions "github.com/containerd/containerd/api/types/runc/options"
-	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
-	"github.com/cyanmint/containerd/v2/internal/cri/systemd"
+	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
+	"github.com/containerd/containerd/v2/internal/cri/systemd"
 	"github.com/containerd/log"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 )

@@ -23,7 +23,7 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/core/mount"
 )
 
 func TestGetOptionByPrefix(t *testing.T) {

@@ -23,9 +23,9 @@ import (
 	"sync"
 	"time"
 
-	"github.com/cyanmint/containerd/v2/internal/tomlext"
-	"github.com/cyanmint/containerd/v2/pkg/gc"
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/internal/tomlext"
+	"github.com/containerd/containerd/v2/pkg/gc"
+	"github.com/containerd/containerd/v2/plugins"
 	"github.com/containerd/log"
 	"github.com/containerd/plugin"
 	"github.com/containerd/plugin/registry"

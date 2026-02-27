@@ -25,8 +25,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	sandboxstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
-	"github.com/cyanmint/containerd/v2/internal/cri/types"
+	sandboxstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
+	"github.com/containerd/containerd/v2/internal/cri/types"
 )
 
 func TestPodSandboxStatus(t *testing.T) {

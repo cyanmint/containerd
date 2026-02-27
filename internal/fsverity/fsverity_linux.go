@@ -23,7 +23,7 @@ import (
 	"syscall"
 	"unsafe"
 
-	"github.com/cyanmint/containerd/v2/pkg/kernelversion"
+	"github.com/containerd/containerd/v2/pkg/kernelversion"
 	"golang.org/x/sys/unix"
 )
 

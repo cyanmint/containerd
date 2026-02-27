@@ -29,8 +29,8 @@ import (
 	"github.com/containerd/plugin"
 	"golang.org/x/sys/unix"
 
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/internal/erofsutils"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/internal/erofsutils"
 )
 
 // defaultWritableSize is set to 0 for Linux to match the default behavior of

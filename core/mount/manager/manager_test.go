@@ -30,11 +30,11 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/cyanmint/containerd/v2/core/metadata"
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/pkg/gc"
-	"github.com/cyanmint/containerd/v2/pkg/namespaces"
-	"github.com/cyanmint/containerd/v2/pkg/testutil"
+	"github.com/containerd/containerd/v2/core/metadata"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/pkg/gc"
+	"github.com/containerd/containerd/v2/pkg/namespaces"
+	"github.com/containerd/containerd/v2/pkg/testutil"
 
 	bolt "go.etcd.io/bbolt"
 )

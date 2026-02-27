@@ -20,7 +20,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/plugins"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

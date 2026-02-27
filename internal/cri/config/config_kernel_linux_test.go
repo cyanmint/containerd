@@ -20,7 +20,7 @@ import (
 	"context"
 	"testing"
 
-	kernel "github.com/cyanmint/containerd/v2/pkg/kernelversion"
+	kernel "github.com/containerd/containerd/v2/pkg/kernelversion"
 	"github.com/stretchr/testify/assert"
 )
 

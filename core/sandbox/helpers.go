@@ -18,8 +18,8 @@ package sandbox
 
 import (
 	"github.com/containerd/containerd/api/types"
-	"github.com/cyanmint/containerd/v2/pkg/protobuf"
-	gogo_types "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
+	"github.com/containerd/containerd/v2/pkg/protobuf"
+	gogo_types "github.com/containerd/containerd/v2/pkg/protobuf/types"
 	"github.com/containerd/typeurl/v2"
 )
 

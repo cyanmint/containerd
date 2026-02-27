@@ -23,7 +23,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/cyanmint/containerd/v2/defaults"
+	"github.com/containerd/containerd/v2/defaults"
 	"github.com/urfave/cli/v2"
 )
 

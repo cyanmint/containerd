@@ -21,7 +21,7 @@ package oci
 import (
 	"context"
 
-	"github.com/cyanmint/containerd/v2/core/containers"
+	"github.com/containerd/containerd/v2/core/containers"
 )
 
 // WithHostDevices adds all the hosts device nodes to the container's spec

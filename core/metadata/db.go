@@ -30,12 +30,12 @@ import (
 	"github.com/containerd/log"
 	bolt "go.etcd.io/bbolt"
 
-	"github.com/cyanmint/containerd/v2/core/content"
-	"github.com/cyanmint/containerd/v2/core/events"
-	"github.com/cyanmint/containerd/v2/core/metadata/boltutil"
-	"github.com/cyanmint/containerd/v2/core/snapshots"
-	"github.com/cyanmint/containerd/v2/pkg/gc"
-	"github.com/cyanmint/containerd/v2/pkg/namespaces"
+	"github.com/containerd/containerd/v2/core/content"
+	"github.com/containerd/containerd/v2/core/events"
+	"github.com/containerd/containerd/v2/core/metadata/boltutil"
+	"github.com/containerd/containerd/v2/core/snapshots"
+	"github.com/containerd/containerd/v2/pkg/gc"
+	"github.com/containerd/containerd/v2/pkg/namespaces"
 )
 
 const (

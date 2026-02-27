@@ -33,9 +33,9 @@ import (
 
 	"github.com/containerd/log"
 
-	"github.com/cyanmint/containerd/v2/core/containers"
-	cdispec "github.com/cyanmint/containerd/v2/pkg/cdi"
-	"github.com/cyanmint/containerd/v2/pkg/oci"
+	"github.com/containerd/containerd/v2/core/containers"
+	cdispec "github.com/containerd/containerd/v2/pkg/cdi"
+	"github.com/containerd/containerd/v2/pkg/oci"
 )
 
 // Linux dependent OCI spec opts.

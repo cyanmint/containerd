@@ -28,9 +28,9 @@ import (
 	"github.com/containerd/typeurl/v2"
 	"google.golang.org/grpc"
 
-	"github.com/cyanmint/containerd/v2/core/streaming"
-	ptypes "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/core/streaming"
+	ptypes "github.com/containerd/containerd/v2/pkg/protobuf/types"
+	"github.com/containerd/containerd/v2/plugins"
 )
 
 var emptyResponse typeurl.Any

@@ -26,20 +26,20 @@ import (
 	"github.com/containerd/plugin"
 	"github.com/containerd/plugin/registry"
 
-	"github.com/cyanmint/containerd/v2/core/diff"
-	"github.com/cyanmint/containerd/v2/core/leases"
-	"github.com/cyanmint/containerd/v2/core/metadata"
-	"github.com/cyanmint/containerd/v2/core/transfer/local"
-	"github.com/cyanmint/containerd/v2/core/unpack"
-	"github.com/cyanmint/containerd/v2/defaults"
-	"github.com/cyanmint/containerd/v2/internal/kmutex"
-	"github.com/cyanmint/containerd/v2/pkg/imageverifier"
-	"github.com/cyanmint/containerd/v2/plugins"
+	"github.com/containerd/containerd/v2/core/diff"
+	"github.com/containerd/containerd/v2/core/leases"
+	"github.com/containerd/containerd/v2/core/metadata"
+	"github.com/containerd/containerd/v2/core/transfer/local"
+	"github.com/containerd/containerd/v2/core/unpack"
+	"github.com/containerd/containerd/v2/defaults"
+	"github.com/containerd/containerd/v2/internal/kmutex"
+	"github.com/containerd/containerd/v2/pkg/imageverifier"
+	"github.com/containerd/containerd/v2/plugins"
 
 	// Load packages with type registrations
-	_ "github.com/cyanmint/containerd/v2/core/transfer/archive"
-	_ "github.com/cyanmint/containerd/v2/core/transfer/image"
-	_ "github.com/cyanmint/containerd/v2/core/transfer/registry"
+	_ "github.com/containerd/containerd/v2/core/transfer/archive"
+	_ "github.com/containerd/containerd/v2/core/transfer/image"
+	_ "github.com/containerd/containerd/v2/core/transfer/registry"
 )
 
 // Register local transfer service plugin

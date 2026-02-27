@@ -28,9 +28,9 @@ import (
 	"github.com/containerd/btrfs/v2"
 	"github.com/containerd/continuity/fs"
 
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/core/snapshots"
-	"github.com/cyanmint/containerd/v2/core/snapshots/storage"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/core/snapshots"
+	"github.com/containerd/containerd/v2/core/snapshots/storage"
 	"github.com/containerd/log"
 	"github.com/containerd/plugin"
 )

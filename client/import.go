@@ -20,9 +20,9 @@ import (
 	"context"
 	"io"
 
-	"github.com/cyanmint/containerd/v2/core/content"
-	"github.com/cyanmint/containerd/v2/core/images"
-	"github.com/cyanmint/containerd/v2/core/images/archive"
+	"github.com/containerd/containerd/v2/core/content"
+	"github.com/containerd/containerd/v2/core/images"
+	"github.com/containerd/containerd/v2/core/images/archive"
 	"github.com/containerd/errdefs"
 	"github.com/containerd/platforms"
 	digest "github.com/opencontainers/go-digest"

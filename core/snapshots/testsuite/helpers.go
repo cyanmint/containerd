@@ -23,9 +23,9 @@ import (
 
 	"github.com/containerd/continuity/fs/fstest"
 
-	"github.com/cyanmint/containerd/v2/core/mount"
-	"github.com/cyanmint/containerd/v2/core/snapshots"
-	"github.com/cyanmint/containerd/v2/internal/randutil"
+	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/core/snapshots"
+	"github.com/containerd/containerd/v2/internal/randutil"
 )
 
 func applyToMounts(ctx context.Context, m []mount.Mount, work string, a fstest.Applier) (err error) {
