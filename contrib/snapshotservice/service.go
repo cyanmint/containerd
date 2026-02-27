@@ -23,10 +23,10 @@ import (
 	"github.com/containerd/errdefs"
 	"github.com/containerd/errdefs/pkg/errgrpc"
 
-	"github.com/containerd/containerd/v2/core/mount"
-	"github.com/containerd/containerd/v2/core/snapshots"
-	"github.com/containerd/containerd/v2/core/snapshots/proxy"
-	ptypes "github.com/containerd/containerd/v2/pkg/protobuf/types"
+	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/snapshots"
+	"github.com/cyanmint/containerd/v2/core/snapshots/proxy"
+	ptypes "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
 )
 
 var empty = &ptypes.Empty{}

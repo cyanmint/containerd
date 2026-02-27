@@ -23,7 +23,7 @@ import (
 	"net/http"
 	"strings"
 
-	remoteerrors "github.com/containerd/containerd/v2/core/remotes/errors"
+	remoteerrors "github.com/cyanmint/containerd/v2/core/remotes/errors"
 )
 
 // ErrorCoder is the base interface for ErrorCode and Error allowing

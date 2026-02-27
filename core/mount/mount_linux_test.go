@@ -26,7 +26,7 @@ import (
 	"syscall"
 	"testing"
 
-	kernel "github.com/containerd/containerd/v2/pkg/kernelversion"
+	kernel "github.com/cyanmint/containerd/v2/pkg/kernelversion"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 

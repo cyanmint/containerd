@@ -37,17 +37,17 @@ import (
 	"github.com/stretchr/testify/require"
 	bolt "go.etcd.io/bbolt"
 
-	"github.com/containerd/containerd/v2/core/containers"
-	"github.com/containerd/containerd/v2/core/content"
-	"github.com/containerd/containerd/v2/core/images"
-	"github.com/containerd/containerd/v2/core/leases"
-	"github.com/containerd/containerd/v2/core/metadata/boltutil"
-	"github.com/containerd/containerd/v2/core/snapshots"
-	"github.com/containerd/containerd/v2/pkg/gc"
-	"github.com/containerd/containerd/v2/pkg/namespaces"
-	"github.com/containerd/containerd/v2/pkg/protobuf/types"
-	"github.com/containerd/containerd/v2/plugins/content/local"
-	"github.com/containerd/containerd/v2/plugins/snapshots/native"
+	"github.com/cyanmint/containerd/v2/core/containers"
+	"github.com/cyanmint/containerd/v2/core/content"
+	"github.com/cyanmint/containerd/v2/core/images"
+	"github.com/cyanmint/containerd/v2/core/leases"
+	"github.com/cyanmint/containerd/v2/core/metadata/boltutil"
+	"github.com/cyanmint/containerd/v2/core/snapshots"
+	"github.com/cyanmint/containerd/v2/pkg/gc"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
+	"github.com/cyanmint/containerd/v2/pkg/protobuf/types"
+	"github.com/cyanmint/containerd/v2/plugins/content/local"
+	"github.com/cyanmint/containerd/v2/plugins/snapshots/native"
 )
 
 type testOptions struct {

@@ -33,11 +33,11 @@ import (
 	"github.com/containerd/log/logtest"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/containerd/containerd/v2/core/mount/manager"
-	"github.com/containerd/containerd/v2/core/snapshots"
-	"github.com/containerd/containerd/v2/internal/randutil"
-	"github.com/containerd/containerd/v2/pkg/namespaces"
-	"github.com/containerd/containerd/v2/pkg/testutil"
+	"github.com/cyanmint/containerd/v2/core/mount/manager"
+	"github.com/cyanmint/containerd/v2/core/snapshots"
+	"github.com/cyanmint/containerd/v2/internal/randutil"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
+	"github.com/cyanmint/containerd/v2/pkg/testutil"
 )
 
 // SnapshotterFunc is used in SnapshotterSuite

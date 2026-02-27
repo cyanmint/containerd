@@ -18,8 +18,8 @@ package proxy
 
 import (
 	snapshotsapi "github.com/containerd/containerd/api/services/snapshots/v1"
-	"github.com/containerd/containerd/v2/core/snapshots"
-	"github.com/containerd/containerd/v2/pkg/protobuf"
+	"github.com/cyanmint/containerd/v2/core/snapshots"
+	"github.com/cyanmint/containerd/v2/pkg/protobuf"
 )
 
 // KindToProto converts from [Kind] to the protobuf definition [snapshots.Kind].

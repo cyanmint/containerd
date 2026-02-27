@@ -23,8 +23,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/containerd/containerd/v2/integration/client"
-	"github.com/containerd/containerd/v2/integration/images"
+	"github.com/cyanmint/containerd/v2/integration/client"
+	"github.com/cyanmint/containerd/v2/integration/images"
 	"github.com/stretchr/testify/require"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 )

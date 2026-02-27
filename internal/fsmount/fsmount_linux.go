@@ -23,7 +23,7 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/mount"
 )
 
 var mountAttrFlags = map[string]struct {

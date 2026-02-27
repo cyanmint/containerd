@@ -36,12 +36,12 @@ import (
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"golang.org/x/sync/semaphore"
 
-	"github.com/containerd/containerd/v2/core/images"
-	"github.com/containerd/containerd/v2/core/remotes"
-	"github.com/containerd/containerd/v2/core/transfer"
-	"github.com/containerd/containerd/v2/pkg/reference"
-	"github.com/containerd/containerd/v2/pkg/tracing"
-	"github.com/containerd/containerd/v2/version"
+	"github.com/cyanmint/containerd/v2/core/images"
+	"github.com/cyanmint/containerd/v2/core/remotes"
+	"github.com/cyanmint/containerd/v2/core/transfer"
+	"github.com/cyanmint/containerd/v2/pkg/reference"
+	"github.com/cyanmint/containerd/v2/pkg/tracing"
+	"github.com/cyanmint/containerd/v2/version"
 )
 
 var (

@@ -30,13 +30,13 @@ import (
 	imagespec "github.com/opencontainers/image-spec/specs-go/v1"
 	"golang.org/x/sync/semaphore"
 
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/core/containers"
-	"github.com/containerd/containerd/v2/core/images"
-	"github.com/containerd/containerd/v2/core/mount"
-	"github.com/containerd/containerd/v2/core/snapshots"
-	"github.com/containerd/containerd/v2/core/unpack"
-	snpkg "github.com/containerd/containerd/v2/pkg/snapshotters"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/core/containers"
+	"github.com/cyanmint/containerd/v2/core/images"
+	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/snapshots"
+	"github.com/cyanmint/containerd/v2/core/unpack"
+	snpkg "github.com/cyanmint/containerd/v2/pkg/snapshotters"
 )
 
 // WithNewSnapshot wraps `containerd.WithNewSnapshot` so that if creating the

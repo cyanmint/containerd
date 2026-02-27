@@ -34,14 +34,14 @@ import (
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/urfave/cli/v2"
 
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/cmd/ctr/commands"
-	"github.com/containerd/containerd/v2/core/content"
-	"github.com/containerd/containerd/v2/core/diff"
-	"github.com/containerd/containerd/v2/core/mount"
-	"github.com/containerd/containerd/v2/core/snapshots"
-	"github.com/containerd/containerd/v2/pkg/progress"
-	"github.com/containerd/containerd/v2/pkg/rootfs"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
+	"github.com/cyanmint/containerd/v2/core/content"
+	"github.com/cyanmint/containerd/v2/core/diff"
+	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/snapshots"
+	"github.com/cyanmint/containerd/v2/pkg/progress"
+	"github.com/cyanmint/containerd/v2/pkg/rootfs"
 )
 
 // Command is the cli command for managing snapshots

@@ -29,9 +29,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/sys/unix"
 
-	"github.com/containerd/containerd/v2/core/containers"
-	"github.com/containerd/containerd/v2/pkg/cap"
-	"github.com/containerd/containerd/v2/pkg/testutil"
+	"github.com/cyanmint/containerd/v2/core/containers"
+	"github.com/cyanmint/containerd/v2/pkg/cap"
+	"github.com/cyanmint/containerd/v2/pkg/testutil"
 )
 
 //nolint:gosec

@@ -30,11 +30,11 @@ import (
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log"
 
-	"github.com/containerd/containerd/v2/core/mount"
-	"github.com/containerd/containerd/v2/core/snapshots"
-	"github.com/containerd/containerd/v2/core/snapshots/storage"
-	"github.com/containerd/containerd/v2/internal/fsverity"
-	"github.com/containerd/containerd/v2/internal/userns"
+	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/snapshots"
+	"github.com/cyanmint/containerd/v2/core/snapshots/storage"
+	"github.com/cyanmint/containerd/v2/internal/fsverity"
+	"github.com/cyanmint/containerd/v2/internal/userns"
 )
 
 // SnapshotterConfig is used to configure the erofs snapshotter instance

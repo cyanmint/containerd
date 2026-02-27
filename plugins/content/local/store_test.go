@@ -35,11 +35,11 @@ import (
 
 	"github.com/containerd/errdefs"
 
-	"github.com/containerd/containerd/v2/core/content"
-	"github.com/containerd/containerd/v2/core/content/testsuite"
-	"github.com/containerd/containerd/v2/internal/fsverity"
-	"github.com/containerd/containerd/v2/internal/randutil"
-	"github.com/containerd/containerd/v2/pkg/testutil"
+	"github.com/cyanmint/containerd/v2/core/content"
+	"github.com/cyanmint/containerd/v2/core/content/testsuite"
+	"github.com/cyanmint/containerd/v2/internal/fsverity"
+	"github.com/cyanmint/containerd/v2/internal/randutil"
+	"github.com/cyanmint/containerd/v2/pkg/testutil"
 
 	"github.com/opencontainers/go-digest"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"

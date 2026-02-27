@@ -20,14 +20,14 @@ import (
 	"context"
 	"fmt"
 
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/pkg/namespaces"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
 	"github.com/containerd/typeurl/v2"
 )
 
 func init() {
 	typeurl.Register(&NetworkMetaData{},
-		"github.com/containerd/containerd/v2/cmd/ctr/commands", "NetworkMetaData")
+		"github.com/cyanmint/containerd/v2/cmd/ctr/commands", "NetworkMetaData")
 }
 
 const (

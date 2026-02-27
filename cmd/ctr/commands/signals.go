@@ -22,7 +22,7 @@ import (
 	"os/signal"
 	"syscall"
 
-	containerd "github.com/containerd/containerd/v2/client"
+	containerd "github.com/cyanmint/containerd/v2/client"
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log"
 )

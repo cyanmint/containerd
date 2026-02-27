@@ -21,7 +21,7 @@ package v2
 import (
 	"context"
 
-	"github.com/containerd/containerd/v2/plugins/services/warning"
+	"github.com/cyanmint/containerd/v2/plugins/services/warning"
 )
 
 func emitPlatformWarnings(ctx context.Context, warnings warning.Service) {

@@ -29,13 +29,13 @@ import (
 	"github.com/stretchr/testify/assert"
 
 	"github.com/containerd/containerd/api/types"
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/core/containers"
-	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
-	crilabels "github.com/containerd/containerd/v2/internal/cri/labels"
-	"github.com/containerd/containerd/v2/internal/cri/store/sandbox"
-	"github.com/containerd/containerd/v2/pkg/cio"
-	"github.com/containerd/containerd/v2/pkg/oci"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/core/containers"
+	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
+	crilabels "github.com/cyanmint/containerd/v2/internal/cri/labels"
+	"github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
+	"github.com/cyanmint/containerd/v2/pkg/cio"
+	"github.com/cyanmint/containerd/v2/pkg/oci"
 )
 
 type fakeContainer struct {

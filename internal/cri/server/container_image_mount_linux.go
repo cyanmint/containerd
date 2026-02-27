@@ -24,10 +24,10 @@ import (
 	"os"
 	"sync"
 
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/core/mount"
-	"github.com/containerd/containerd/v2/core/snapshots"
-	kernel "github.com/containerd/containerd/v2/pkg/kernelversion"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/snapshots"
+	kernel "github.com/cyanmint/containerd/v2/pkg/kernelversion"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 )
 

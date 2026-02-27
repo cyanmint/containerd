@@ -22,9 +22,9 @@ import (
 	"fmt"
 	"time"
 
-	containerd "github.com/containerd/containerd/v2/client"
-	containerstore "github.com/containerd/containerd/v2/internal/cri/store/container"
-	"github.com/containerd/containerd/v2/pkg/tracing"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	containerstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
+	"github.com/cyanmint/containerd/v2/pkg/tracing"
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"

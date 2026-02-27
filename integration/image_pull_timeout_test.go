@@ -38,14 +38,14 @@ import (
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 	"github.com/stretchr/testify/assert"
 
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/core/content"
-	"github.com/containerd/containerd/v2/core/leases"
-	"github.com/containerd/containerd/v2/defaults"
-	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
-	criserver "github.com/containerd/containerd/v2/internal/cri/server"
-	"github.com/containerd/containerd/v2/internal/cri/server/images"
-	"github.com/containerd/containerd/v2/pkg/namespaces"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/core/content"
+	"github.com/cyanmint/containerd/v2/core/leases"
+	"github.com/cyanmint/containerd/v2/defaults"
+	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
+	criserver "github.com/cyanmint/containerd/v2/internal/cri/server"
+	"github.com/cyanmint/containerd/v2/internal/cri/server/images"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
 )
 
 var (

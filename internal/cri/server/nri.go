@@ -17,11 +17,11 @@
 package server
 
 import (
-	sbstore "github.com/containerd/containerd/v2/core/sandbox"
-	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
-	crilabels "github.com/containerd/containerd/v2/internal/cri/labels"
-	cstore "github.com/containerd/containerd/v2/internal/cri/store/container"
-	sstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
+	sbstore "github.com/cyanmint/containerd/v2/core/sandbox"
+	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
+	crilabels "github.com/cyanmint/containerd/v2/internal/cri/labels"
+	cstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
+	sstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
 )
 
 type criImplementation struct {

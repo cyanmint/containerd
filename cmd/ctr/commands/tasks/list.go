@@ -22,7 +22,7 @@ import (
 	"text/tabwriter"
 
 	tasks "github.com/containerd/containerd/api/services/tasks/v1"
-	"github.com/containerd/containerd/v2/cmd/ctr/commands"
+	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
 	"github.com/urfave/cli/v2"
 )
 

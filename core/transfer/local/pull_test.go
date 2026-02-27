@@ -21,9 +21,9 @@ import (
 
 	"github.com/containerd/platforms"
 
-	"github.com/containerd/containerd/v2/core/transfer"
-	"github.com/containerd/containerd/v2/core/unpack"
-	"github.com/containerd/containerd/v2/defaults"
+	"github.com/cyanmint/containerd/v2/core/transfer"
+	"github.com/cyanmint/containerd/v2/core/unpack"
+	"github.com/cyanmint/containerd/v2/defaults"
 )
 
 func TestGetSupportedPlatform(t *testing.T) {

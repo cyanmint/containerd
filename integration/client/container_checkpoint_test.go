@@ -29,9 +29,9 @@ import (
 	"syscall"
 	"testing"
 
-	. "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/pkg/cio"
-	"github.com/containerd/containerd/v2/pkg/oci"
+	. "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/pkg/cio"
+	"github.com/cyanmint/containerd/v2/pkg/oci"
 )
 
 const (

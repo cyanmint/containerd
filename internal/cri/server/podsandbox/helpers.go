@@ -25,12 +25,12 @@ import (
 	runtimespec "github.com/opencontainers/runtime-spec/specs-go"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/core/containers"
-	crilabels "github.com/containerd/containerd/v2/internal/cri/labels"
-	sandboxstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
-	ctrdutil "github.com/containerd/containerd/v2/internal/cri/util"
-	"github.com/containerd/containerd/v2/pkg/oci"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/core/containers"
+	crilabels "github.com/cyanmint/containerd/v2/internal/cri/labels"
+	sandboxstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
+	ctrdutil "github.com/cyanmint/containerd/v2/internal/cri/util"
+	"github.com/cyanmint/containerd/v2/pkg/oci"
 )
 
 const (

@@ -25,9 +25,9 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/containerd/containerd/v2/core/containers"
-	"github.com/containerd/containerd/v2/pkg/namespaces"
-	"github.com/containerd/containerd/v2/pkg/testutil"
+	"github.com/cyanmint/containerd/v2/core/containers"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
+	"github.com/cyanmint/containerd/v2/pkg/testutil"
 	"github.com/containerd/continuity/fs/fstest"
 	"github.com/opencontainers/runtime-spec/specs-go"
 )

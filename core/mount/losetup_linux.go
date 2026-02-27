@@ -25,8 +25,8 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/containerd/containerd/v2/internal/randutil"
-	kernel "github.com/containerd/containerd/v2/pkg/kernelversion"
+	"github.com/cyanmint/containerd/v2/internal/randutil"
+	kernel "github.com/cyanmint/containerd/v2/pkg/kernelversion"
 )
 
 const (

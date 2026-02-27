@@ -28,11 +28,11 @@ import (
 	"strings"
 
 	"github.com/containerd/console"
-	"github.com/containerd/containerd/v2/core/remotes"
-	"github.com/containerd/containerd/v2/core/remotes/docker"
-	"github.com/containerd/containerd/v2/core/remotes/docker/config"
-	"github.com/containerd/containerd/v2/core/transfer/registry"
-	"github.com/containerd/containerd/v2/pkg/httpdbg"
+	"github.com/cyanmint/containerd/v2/core/remotes"
+	"github.com/cyanmint/containerd/v2/core/remotes/docker"
+	"github.com/cyanmint/containerd/v2/core/remotes/docker/config"
+	"github.com/cyanmint/containerd/v2/core/transfer/registry"
+	"github.com/cyanmint/containerd/v2/pkg/httpdbg"
 	"github.com/urfave/cli/v2"
 )
 

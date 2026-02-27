@@ -1,4 +1,4 @@
-module github.com/containerd/containerd/v2
+module github.com/cyanmint/containerd/v2
 
 go 1.24.6
 

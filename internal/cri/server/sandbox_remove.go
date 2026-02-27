@@ -21,8 +21,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/containerd/containerd/v2/core/leases"
-	"github.com/containerd/containerd/v2/pkg/tracing"
+	"github.com/cyanmint/containerd/v2/core/leases"
+	"github.com/cyanmint/containerd/v2/pkg/tracing"
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log"
 

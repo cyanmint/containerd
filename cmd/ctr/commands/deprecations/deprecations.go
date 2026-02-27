@@ -25,8 +25,8 @@ import (
 	"github.com/urfave/cli/v2"
 
 	api "github.com/containerd/containerd/api/services/introspection/v1"
-	"github.com/containerd/containerd/v2/cmd/ctr/commands"
-	"github.com/containerd/containerd/v2/pkg/protobuf"
+	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
+	"github.com/cyanmint/containerd/v2/pkg/protobuf"
 )
 
 // Command is the parent for all commands under "deprecations"

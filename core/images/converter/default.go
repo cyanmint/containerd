@@ -24,8 +24,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/containerd/containerd/v2/core/content"
-	"github.com/containerd/containerd/v2/core/images"
+	"github.com/cyanmint/containerd/v2/core/content"
+	"github.com/cyanmint/containerd/v2/core/images"
 	"github.com/containerd/log"
 	"github.com/containerd/platforms"
 	"github.com/opencontainers/go-digest"

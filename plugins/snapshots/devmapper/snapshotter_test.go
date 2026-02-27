@@ -29,12 +29,12 @@ import (
 	"github.com/containerd/continuity/fs/fstest"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/containerd/containerd/v2/core/mount"
-	"github.com/containerd/containerd/v2/core/snapshots"
-	"github.com/containerd/containerd/v2/core/snapshots/testsuite"
-	"github.com/containerd/containerd/v2/pkg/namespaces"
-	"github.com/containerd/containerd/v2/pkg/testutil"
-	"github.com/containerd/containerd/v2/plugins/snapshots/devmapper/dmsetup"
+	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/snapshots"
+	"github.com/cyanmint/containerd/v2/core/snapshots/testsuite"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
+	"github.com/cyanmint/containerd/v2/pkg/testutil"
+	"github.com/cyanmint/containerd/v2/plugins/snapshots/devmapper/dmsetup"
 	"github.com/containerd/log"
 )
 

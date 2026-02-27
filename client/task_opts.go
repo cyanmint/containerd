@@ -24,8 +24,8 @@ import (
 
 	"github.com/containerd/containerd/api/types"
 	"github.com/containerd/containerd/api/types/runc/options"
-	"github.com/containerd/containerd/v2/core/images"
-	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/images"
+	"github.com/cyanmint/containerd/v2/core/mount"
 	"github.com/containerd/errdefs"
 	"github.com/opencontainers/runtime-spec/specs-go"
 )

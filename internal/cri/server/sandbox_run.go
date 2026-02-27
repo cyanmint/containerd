@@ -32,16 +32,16 @@ import (
 	"github.com/containerd/typeurl/v2"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	"github.com/containerd/containerd/v2/core/leases"
-	sb "github.com/containerd/containerd/v2/core/sandbox"
-	"github.com/containerd/containerd/v2/internal/cri/annotations"
-	"github.com/containerd/containerd/v2/internal/cri/bandwidth"
-	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
-	"github.com/containerd/containerd/v2/internal/cri/server/podsandbox"
-	sandboxstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
-	"github.com/containerd/containerd/v2/internal/cri/util"
-	"github.com/containerd/containerd/v2/pkg/netns"
-	"github.com/containerd/containerd/v2/pkg/tracing"
+	"github.com/cyanmint/containerd/v2/core/leases"
+	sb "github.com/cyanmint/containerd/v2/core/sandbox"
+	"github.com/cyanmint/containerd/v2/internal/cri/annotations"
+	"github.com/cyanmint/containerd/v2/internal/cri/bandwidth"
+	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
+	"github.com/cyanmint/containerd/v2/internal/cri/server/podsandbox"
+	sandboxstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
+	"github.com/cyanmint/containerd/v2/internal/cri/util"
+	"github.com/cyanmint/containerd/v2/pkg/netns"
+	"github.com/cyanmint/containerd/v2/pkg/tracing"
 )
 
 func init() {

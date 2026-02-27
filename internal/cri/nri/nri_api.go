@@ -20,10 +20,10 @@ import (
 	"context"
 	"time"
 
-	sbstore "github.com/containerd/containerd/v2/core/sandbox"
-	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
-	cstore "github.com/containerd/containerd/v2/internal/cri/store/container"
-	sstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
+	sbstore "github.com/cyanmint/containerd/v2/core/sandbox"
+	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
+	cstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
+	sstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
 	cri "k8s.io/cri-api/pkg/apis/runtime/v1"
 )
 

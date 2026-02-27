@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/containerd/containerd/v2/core/remotes"
+	"github.com/cyanmint/containerd/v2/core/remotes"
 	"github.com/containerd/errdefs"
 	specs "github.com/opencontainers/image-spec/specs-go"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"

@@ -28,7 +28,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/containerd/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/client"
 	"github.com/containerd/plugin"
 )
 

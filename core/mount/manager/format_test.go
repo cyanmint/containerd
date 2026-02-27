@@ -22,7 +22,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/mount"
 )
 
 func TestFormatMount(t *testing.T) {

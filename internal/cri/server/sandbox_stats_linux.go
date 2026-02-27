@@ -30,7 +30,7 @@ import (
 	"github.com/vishvananda/netlink"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	sandboxstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
+	sandboxstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
 )
 
 func (c *criService) podSandboxStats(

@@ -26,9 +26,9 @@ import (
 
 	"github.com/containerd/log"
 
-	"github.com/containerd/containerd/v2/internal/cri/util"
-	"github.com/containerd/containerd/v2/pkg/cio"
-	cioutil "github.com/containerd/containerd/v2/pkg/ioutil"
+	"github.com/cyanmint/containerd/v2/internal/cri/util"
+	"github.com/cyanmint/containerd/v2/pkg/cio"
+	cioutil "github.com/cyanmint/containerd/v2/pkg/ioutil"
 )
 
 // streamKey generates a key for the stream.

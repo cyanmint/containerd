@@ -29,8 +29,8 @@ import (
 
 	"github.com/containerd/errdefs"
 
-	"github.com/containerd/containerd/v2/core/mount"
-	"github.com/containerd/containerd/v2/core/mount/manager"
+	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/mount/manager"
 )
 
 type mountManagerKey struct{}

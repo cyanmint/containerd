@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/containerd/containerd/v2/pkg/reference"
+	"github.com/cyanmint/containerd/v2/pkg/reference"
 	distref "github.com/distribution/reference"
 	"github.com/opencontainers/go-digest"
 )

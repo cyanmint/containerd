@@ -26,7 +26,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/containerd/containerd/v2/pkg/namespaces"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
 )
 
 func TestNewBinaryIO(t *testing.T) {

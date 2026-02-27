@@ -22,7 +22,7 @@ import (
 	"context"
 	"testing"
 
-	"github.com/containerd/containerd/v2/pkg/namespaces"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
 	"github.com/opencontainers/runtime-spec/specs-go"
 )
 

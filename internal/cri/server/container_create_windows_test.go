@@ -26,8 +26,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	"github.com/containerd/containerd/v2/internal/cri/annotations"
-	"github.com/containerd/containerd/v2/internal/cri/config"
+	"github.com/cyanmint/containerd/v2/internal/cri/annotations"
+	"github.com/cyanmint/containerd/v2/internal/cri/config"
 )
 
 func getSandboxConfig() *runtime.PodSandboxConfig {

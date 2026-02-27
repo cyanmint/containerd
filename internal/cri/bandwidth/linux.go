@@ -42,10 +42,10 @@ import (
 	"net"
 	"strings"
 
-	executil "github.com/containerd/containerd/v2/internal/cri/executil"
-	resource "github.com/containerd/containerd/v2/internal/cri/resourcequantity"
-	"github.com/containerd/containerd/v2/internal/cri/setutils"
-	"github.com/containerd/containerd/v2/internal/lazyregexp"
+	executil "github.com/cyanmint/containerd/v2/internal/cri/executil"
+	resource "github.com/cyanmint/containerd/v2/internal/cri/resourcequantity"
+	"github.com/cyanmint/containerd/v2/internal/cri/setutils"
+	"github.com/cyanmint/containerd/v2/internal/lazyregexp"
 	"github.com/containerd/log"
 )
 

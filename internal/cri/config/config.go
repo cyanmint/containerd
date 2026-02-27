@@ -32,11 +32,11 @@ import (
 	runhcsoptions "github.com/Microsoft/hcsshim/cmd/containerd-shim-runhcs-v1/options"
 	runcoptions "github.com/containerd/containerd/api/types/runc/options"
 	runtimeoptions "github.com/containerd/containerd/api/types/runtimeoptions/v1"
-	"github.com/containerd/containerd/v2/internal/cri/annotations"
-	"github.com/containerd/containerd/v2/internal/cri/opts"
-	streaming "github.com/containerd/containerd/v2/internal/cri/streamingserver"
-	"github.com/containerd/containerd/v2/pkg/deprecation"
-	"github.com/containerd/containerd/v2/plugins"
+	"github.com/cyanmint/containerd/v2/internal/cri/annotations"
+	"github.com/cyanmint/containerd/v2/internal/cri/opts"
+	streaming "github.com/cyanmint/containerd/v2/internal/cri/streamingserver"
+	"github.com/cyanmint/containerd/v2/pkg/deprecation"
+	"github.com/cyanmint/containerd/v2/plugins"
 )
 
 const (

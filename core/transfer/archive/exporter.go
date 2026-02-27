@@ -25,12 +25,12 @@ import (
 
 	"github.com/containerd/containerd/api/types"
 	transfertypes "github.com/containerd/containerd/api/types/transfer"
-	"github.com/containerd/containerd/v2/core/content"
-	"github.com/containerd/containerd/v2/core/images"
-	"github.com/containerd/containerd/v2/core/images/archive"
-	"github.com/containerd/containerd/v2/core/streaming"
-	"github.com/containerd/containerd/v2/core/transfer/plugins"
-	tstreaming "github.com/containerd/containerd/v2/core/transfer/streaming"
+	"github.com/cyanmint/containerd/v2/core/content"
+	"github.com/cyanmint/containerd/v2/core/images"
+	"github.com/cyanmint/containerd/v2/core/images/archive"
+	"github.com/cyanmint/containerd/v2/core/streaming"
+	"github.com/cyanmint/containerd/v2/core/transfer/plugins"
+	tstreaming "github.com/cyanmint/containerd/v2/core/transfer/streaming"
 	"github.com/containerd/log"
 	"github.com/containerd/platforms"
 )

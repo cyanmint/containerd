@@ -25,7 +25,7 @@ import (
 	"text/tabwriter"
 
 	"github.com/containerd/containerd/api/types"
-	"github.com/containerd/containerd/v2/cmd/ctr/commands"
+	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
 	"github.com/containerd/platforms"
 	pluginutils "github.com/containerd/plugin"
 	v1 "github.com/opencontainers/image-spec/specs-go/v1"

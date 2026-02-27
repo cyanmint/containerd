@@ -19,9 +19,9 @@ package tasks
 import (
 	"context"
 
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/cmd/ctr/commands"
-	"github.com/containerd/containerd/v2/pkg/cio"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/cmd/ctr/commands"
+	"github.com/cyanmint/containerd/v2/pkg/cio"
 	"github.com/containerd/log"
 	"github.com/urfave/cli/v2"
 )

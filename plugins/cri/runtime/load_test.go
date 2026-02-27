@@ -25,8 +25,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	criconfig "github.com/containerd/containerd/v2/internal/cri/config"
-	"github.com/containerd/containerd/v2/pkg/oci"
+	criconfig "github.com/cyanmint/containerd/v2/internal/cri/config"
+	"github.com/cyanmint/containerd/v2/pkg/oci"
 )
 
 func TestLoadBaseOCISpec(t *testing.T) {

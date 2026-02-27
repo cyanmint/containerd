@@ -34,9 +34,9 @@ import (
 	"google.golang.org/protobuf/types/known/anypb"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	containerstore "github.com/containerd/containerd/v2/internal/cri/store/container"
-	sandboxstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
-	"github.com/containerd/containerd/v2/pkg/protobuf"
+	containerstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
+	sandboxstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
+	"github.com/cyanmint/containerd/v2/pkg/protobuf"
 )
 
 func TestContainerMetricsCPUNanoCoreUsage(t *testing.T) {

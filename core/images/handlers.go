@@ -24,7 +24,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/containerd/containerd/v2/core/content"
+	"github.com/cyanmint/containerd/v2/core/content"
 	"github.com/containerd/errdefs"
 	"github.com/containerd/platforms"
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"

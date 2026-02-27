@@ -23,7 +23,7 @@ import (
 	bolt "go.etcd.io/bbolt"
 	errbolt "go.etcd.io/bbolt/errors"
 
-	"github.com/containerd/containerd/v2/core/metadata/boltutil"
+	"github.com/cyanmint/containerd/v2/core/metadata/boltutil"
 )
 
 // Transactor is the database interface for running transactions

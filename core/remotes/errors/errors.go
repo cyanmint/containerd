@@ -27,7 +27,7 @@ import (
 var _ error = ErrUnexpectedStatus{}
 
 func init() {
-	typeurl.Register(&ErrUnexpectedStatus{}, "github.com/containerd/containerd/v2/core/remotes/errors", "ErrUnexpectedStatus")
+	typeurl.Register(&ErrUnexpectedStatus{}, "github.com/cyanmint/containerd/v2/core/remotes/errors", "ErrUnexpectedStatus")
 }
 
 // ErrUnexpectedStatus is returned if a registry API request returned with unexpected HTTP status

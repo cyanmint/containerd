@@ -19,7 +19,7 @@
 package plugin
 
 import (
-	overlayutils "github.com/containerd/containerd/v2/plugins/snapshots/overlay/overlayutils"
+	overlayutils "github.com/cyanmint/containerd/v2/plugins/snapshots/overlay/overlayutils"
 )
 
 func supportsIDMappedMounts() (bool, error) {

@@ -24,7 +24,7 @@ import (
 	"github.com/containerd/log"
 
 	eventtypes "github.com/containerd/containerd/api/events"
-	ctrdutil "github.com/containerd/containerd/v2/internal/cri/util"
+	ctrdutil "github.com/cyanmint/containerd/v2/internal/cri/util"
 )
 
 const (

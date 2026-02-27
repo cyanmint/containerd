@@ -21,7 +21,7 @@ import (
 	"strings"
 	"testing"
 
-	crilabels "github.com/containerd/containerd/v2/internal/cri/labels"
+	crilabels "github.com/cyanmint/containerd/v2/internal/cri/labels"
 	"github.com/containerd/errdefs/pkg/errgrpc"
 	"github.com/containerd/ttrpc"
 	"github.com/stretchr/testify/assert"

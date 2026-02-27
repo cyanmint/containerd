@@ -22,15 +22,15 @@ import (
 	"context"
 
 	eventtypes "github.com/containerd/containerd/api/events"
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/core/containers"
-	cstore "github.com/containerd/containerd/v2/internal/cri/store/container"
-	sstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/core/containers"
+	cstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
+	sstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
 	"github.com/opencontainers/runtime-spec/specs-go"
 	cri "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	"github.com/containerd/containerd/v2/internal/cri/constants"
-	"github.com/containerd/containerd/v2/internal/nri"
+	"github.com/cyanmint/containerd/v2/internal/cri/constants"
+	"github.com/cyanmint/containerd/v2/internal/nri"
 
 	"github.com/containerd/nri/pkg/api"
 )

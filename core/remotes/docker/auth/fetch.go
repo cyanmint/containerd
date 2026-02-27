@@ -26,9 +26,9 @@ import (
 	"strings"
 	"time"
 
-	remoteserrors "github.com/containerd/containerd/v2/core/remotes/errors"
-	"github.com/containerd/containerd/v2/pkg/tracing"
-	"github.com/containerd/containerd/v2/version"
+	remoteserrors "github.com/cyanmint/containerd/v2/core/remotes/errors"
+	"github.com/cyanmint/containerd/v2/pkg/tracing"
+	"github.com/cyanmint/containerd/v2/version"
 	"github.com/containerd/log"
 )
 

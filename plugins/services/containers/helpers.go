@@ -18,9 +18,9 @@ package containers
 
 import (
 	api "github.com/containerd/containerd/api/services/containers/v1"
-	"github.com/containerd/containerd/v2/core/containers"
-	"github.com/containerd/containerd/v2/pkg/protobuf"
-	"github.com/containerd/containerd/v2/pkg/protobuf/types"
+	"github.com/cyanmint/containerd/v2/core/containers"
+	"github.com/cyanmint/containerd/v2/pkg/protobuf"
+	"github.com/cyanmint/containerd/v2/pkg/protobuf/types"
 	"github.com/containerd/typeurl/v2"
 )
 

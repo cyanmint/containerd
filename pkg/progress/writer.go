@@ -24,7 +24,7 @@ import (
 	"strings"
 
 	"github.com/containerd/console"
-	"github.com/containerd/containerd/v2/internal/lazyregexp"
+	"github.com/cyanmint/containerd/v2/internal/lazyregexp"
 )
 
 var (

@@ -22,9 +22,9 @@ import (
 
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	"github.com/containerd/containerd/v2/internal/cri/server/podsandbox"
-	sstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
-	"github.com/containerd/containerd/v2/pkg/tracing"
+	"github.com/cyanmint/containerd/v2/internal/cri/server/podsandbox"
+	sstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
+	"github.com/cyanmint/containerd/v2/pkg/tracing"
 	"github.com/containerd/log"
 )
 

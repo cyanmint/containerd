@@ -38,12 +38,12 @@ import (
 	"golang.org/x/time/rate"
 	runtime "k8s.io/cri-api/pkg/apis/runtime/v1"
 
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/core/containers"
-	containerstore "github.com/containerd/containerd/v2/internal/cri/store/container"
-	sandboxstore "github.com/containerd/containerd/v2/internal/cri/store/sandbox"
-	"github.com/containerd/containerd/v2/internal/cri/util"
-	"github.com/containerd/containerd/v2/plugins"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/core/containers"
+	containerstore "github.com/cyanmint/containerd/v2/internal/cri/store/container"
+	sandboxstore "github.com/cyanmint/containerd/v2/internal/cri/store/sandbox"
+	"github.com/cyanmint/containerd/v2/internal/cri/util"
+	"github.com/cyanmint/containerd/v2/plugins"
 )
 
 // Rate limiter to prevent overwhelming the system with concurrent requests

@@ -27,8 +27,8 @@ import (
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log/logtest"
 
-	"github.com/containerd/containerd/v2/core/mount"
-	"github.com/containerd/containerd/v2/pkg/namespaces"
+	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
 )
 
 func TestMkdirHandler(t *testing.T) {

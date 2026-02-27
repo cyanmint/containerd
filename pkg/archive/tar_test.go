@@ -39,8 +39,8 @@ import (
 	"github.com/opencontainers/go-digest"
 	"github.com/stretchr/testify/require"
 
-	"github.com/containerd/containerd/v2/pkg/archive/tartest"
-	"github.com/containerd/containerd/v2/pkg/testutil"
+	"github.com/cyanmint/containerd/v2/pkg/archive/tartest"
+	"github.com/cyanmint/containerd/v2/pkg/testutil"
 )
 
 const tarCmd = "tar"

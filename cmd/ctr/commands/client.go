@@ -22,9 +22,9 @@ import (
 	"os"
 	"strconv"
 
-	containerd "github.com/containerd/containerd/v2/client"
-	"github.com/containerd/containerd/v2/pkg/epoch"
-	"github.com/containerd/containerd/v2/pkg/namespaces"
+	containerd "github.com/cyanmint/containerd/v2/client"
+	"github.com/cyanmint/containerd/v2/pkg/epoch"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
 	"github.com/containerd/log"
 	"github.com/urfave/cli/v2"
 )

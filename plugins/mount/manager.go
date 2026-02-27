@@ -29,11 +29,11 @@ import (
 	"github.com/containerd/plugin"
 	"github.com/containerd/plugin/registry"
 
-	"github.com/containerd/containerd/v2/core/metadata"
-	"github.com/containerd/containerd/v2/core/metadata/boltutil"
-	"github.com/containerd/containerd/v2/core/mount"
-	"github.com/containerd/containerd/v2/core/mount/manager"
-	"github.com/containerd/containerd/v2/plugins"
+	"github.com/cyanmint/containerd/v2/core/metadata"
+	"github.com/cyanmint/containerd/v2/core/metadata/boltutil"
+	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/mount/manager"
+	"github.com/cyanmint/containerd/v2/plugins"
 )
 
 func init() {

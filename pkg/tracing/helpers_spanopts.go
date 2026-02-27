@@ -19,7 +19,7 @@ package tracing
 import (
 	"context"
 
-	"github.com/containerd/containerd/v2/pkg/namespaces"
+	"github.com/cyanmint/containerd/v2/pkg/namespaces"
 	"go.opentelemetry.io/otel/trace"
 )
 

@@ -30,9 +30,9 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/protobuf/types/known/emptypb"
 
-	"github.com/containerd/containerd/v2/core/content"
-	"github.com/containerd/containerd/v2/pkg/protobuf"
-	protobuftypes "github.com/containerd/containerd/v2/pkg/protobuf/types"
+	"github.com/cyanmint/containerd/v2/core/content"
+	"github.com/cyanmint/containerd/v2/pkg/protobuf"
+	protobuftypes "github.com/cyanmint/containerd/v2/pkg/protobuf/types"
 )
 
 type proxyContentStore struct {

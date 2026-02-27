@@ -27,7 +27,7 @@ import (
 	"github.com/containerd/errdefs"
 	"github.com/containerd/log"
 
-	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/core/mount"
 	"github.com/docker/go-units"
 )
 

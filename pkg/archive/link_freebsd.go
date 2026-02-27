@@ -19,7 +19,7 @@ package archive
 import (
 	"os"
 
-	"github.com/containerd/containerd/v2/pkg/sys"
+	"github.com/cyanmint/containerd/v2/pkg/sys"
 	"golang.org/x/sys/unix"
 )
 

@@ -42,7 +42,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/sync/semaphore"
 
-	"github.com/containerd/containerd/v2/core/transfer"
+	"github.com/cyanmint/containerd/v2/core/transfer"
 )
 
 type writeFunc func(p []byte) (int, error)

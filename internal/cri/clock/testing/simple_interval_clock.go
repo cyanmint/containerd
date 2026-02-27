@@ -35,7 +35,7 @@ package testing
 import (
 	"time"
 
-	"github.com/containerd/containerd/v2/internal/cri/clock"
+	"github.com/cyanmint/containerd/v2/internal/cri/clock"
 )
 
 var (

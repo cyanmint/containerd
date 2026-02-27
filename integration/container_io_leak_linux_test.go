@@ -24,7 +24,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/containerd/containerd/v2/integration/images"
+	"github.com/cyanmint/containerd/v2/integration/images"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

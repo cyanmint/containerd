@@ -24,10 +24,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/containerd/containerd/v2/core/mount"
-	"github.com/containerd/containerd/v2/internal/fsmount"
-	"github.com/containerd/containerd/v2/pkg/testutil"
-	snapshotserofs "github.com/containerd/containerd/v2/plugins/snapshots/erofs"
+	"github.com/cyanmint/containerd/v2/core/mount"
+	"github.com/cyanmint/containerd/v2/internal/fsmount"
+	"github.com/cyanmint/containerd/v2/pkg/testutil"
+	snapshotserofs "github.com/cyanmint/containerd/v2/plugins/snapshots/erofs"
 	"golang.org/x/sys/unix"
 )
 

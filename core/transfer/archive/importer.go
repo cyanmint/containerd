@@ -24,11 +24,11 @@ import (
 	ocispec "github.com/opencontainers/image-spec/specs-go/v1"
 
 	transferapi "github.com/containerd/containerd/api/types/transfer"
-	"github.com/containerd/containerd/v2/core/content"
-	"github.com/containerd/containerd/v2/core/images/archive"
-	"github.com/containerd/containerd/v2/core/streaming"
-	tstreaming "github.com/containerd/containerd/v2/core/transfer/streaming"
-	"github.com/containerd/containerd/v2/pkg/archive/compression"
+	"github.com/cyanmint/containerd/v2/core/content"
+	"github.com/cyanmint/containerd/v2/core/images/archive"
+	"github.com/cyanmint/containerd/v2/core/streaming"
+	tstreaming "github.com/cyanmint/containerd/v2/core/transfer/streaming"
+	"github.com/cyanmint/containerd/v2/pkg/archive/compression"
 	"github.com/containerd/log"
 )
 

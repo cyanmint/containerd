@@ -17,8 +17,8 @@
 package nri
 
 import (
-	"github.com/containerd/containerd/v2/defaults"
-	"github.com/containerd/containerd/v2/internal/tomlext"
+	"github.com/cyanmint/containerd/v2/defaults"
+	"github.com/cyanmint/containerd/v2/internal/tomlext"
 	nri "github.com/containerd/nri/pkg/adaptation"
 	validator "github.com/containerd/nri/plugins/default-validator"
 	"github.com/containerd/otelttrpc"
