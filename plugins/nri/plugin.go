@@ -33,6 +33,8 @@ func init() {
 }
 
 func initFunc(ic *plugin.InitContext) (interface{}, error) {
-	l, err := nri.New(ic.Config.(*nri.Config))
+	cfg := ic.Config.(*nri.Config)
+	nri.ApplyPrefixToNRIDefaults(cfg)
+	l, err := nri.New(cfg)
 	return l, err
 }
