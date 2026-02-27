@@ -65,6 +65,9 @@ func Command(ctx context.Context, config *CommandConfig) (*exec.Cmd, error) {
 		"-address", config.Address,
 		"-publish-binary", self,
 	}
+	if defaults.PathPrefix != "" {
+		args = append(args, "-prefix", defaults.PathPrefix)
+	}
 	args = append(args, config.Args...)
 	cmd := exec.CommandContext(ctx, config.Runtime, args...)
 	cmd.Dir = config.Path
@@ -76,13 +79,6 @@ func Command(ctx context.Context, config *CommandConfig) (*exec.Cmd, error) {
 		fmt.Sprintf("%s=%s", grpcAddressEnv, config.Address),
 		fmt.Sprintf("%s=%s", namespaceEnv, ns),
 	)
-	if defaults.PathPrefix != "" {
-		// Use an environment variable so that external shim binaries that
-		// were built without the -prefix flag remain compatible: they simply
-		// inherit and ignore the variable.  Shims built from this repository
-		// read CONTAINERD_PATH_PREFIX in parseFlags() as a fallback.
-		cmd.Env = append(cmd.Env, fmt.Sprintf("%s=%s", pathPrefixEnv, defaults.PathPrefix))
-	}
 	if len(config.Env) > 0 {
 		cmd.Env = append(cmd.Env, config.Env...)
 	}

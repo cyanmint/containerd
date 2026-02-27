@@ -137,7 +137,6 @@ const (
 	grpcAddressEnv  = "GRPC_ADDRESS"
 	namespaceEnv    = "NAMESPACE"
 	maxVersionEnv   = "MAX_SHIM_VERSION"
-	pathPrefixEnv   = "CONTAINERD_PATH_PREFIX"
 )
 
 func parseFlags() {
@@ -168,13 +167,6 @@ func parseFlags() {
 
 	// Set PathPrefix before any default-path computation so all subsystems
 	// (including process.RuncRoot usage) see the correct prefix.
-	// Also accept the value via environment variable so that older shim
-	// binaries (which don't define the -prefix flag) remain compatible:
-	// containerd sets CONTAINERD_PATH_PREFIX in the shim's environment and
-	// the shim reads it here as a fallback.
-	if prefixFlag == "" {
-		prefixFlag = os.Getenv(pathPrefixEnv)
-	}
 	if prefixFlag != "" {
 		defaults.PathPrefix = prefixFlag
 	}
