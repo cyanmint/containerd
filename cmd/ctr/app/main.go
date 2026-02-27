@@ -150,6 +150,9 @@ containerd CLI
 		if prefix := cliContext.String("prefix"); prefix != "" {
 			// Set PathPrefix so all subsystems that call defaults.Prefix() see it.
 			defaults.PathPrefix = prefix
+			// On devices without /etc/resolv.conf (e.g. Android/Termux), configure
+			// the Go DNS resolver to use nameservers from PREFIX/etc/resolv.conf.
+			defaults.ConfigureResolver()
 			// Only override address if the user did not set it explicitly.
 			if !cliContext.IsSet("address") {
 				if err := cliContext.Set("address", defaults.Prefix(defaults.DefaultAddress)); err != nil {

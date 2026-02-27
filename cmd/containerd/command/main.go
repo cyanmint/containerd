@@ -145,6 +145,10 @@ can be used and modified as necessary as a custom configuration.`
 		// Set PathPrefix before any default-path computation so that all
 		// subsystems (including plugins loaded later) see the same prefix.
 		defaults.PathPrefix = prefix
+		// On devices without /etc/resolv.conf (e.g. Android/Termux), Go's
+		// DNS resolver falls back to unreachable defaults.  Override it to
+		// use the nameservers from PREFIX/etc/resolv.conf instead.
+		defaults.ConfigureResolver()
 
 		config := defaultConfigWithPrefix(prefix)
 
