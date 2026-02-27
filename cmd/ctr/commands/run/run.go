@@ -221,6 +221,7 @@ var Command = &cli.Command{
 		var network gocni.CNI
 		if enableCNI {
 			if network, err = gocni.New(
+				gocni.WithPluginDir([]string{defaults.Prefix(gocni.DefaultCNIDir)}),
 				gocni.WithPluginConfDir(defaults.Prefix(gocni.DefaultNetDir)),
 				gocni.WithDefaultConf,
 			); err != nil {
