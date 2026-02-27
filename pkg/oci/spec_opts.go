@@ -43,6 +43,7 @@ import (
 	"github.com/containerd/containerd/v2/core/content"
 	"github.com/containerd/containerd/v2/core/images"
 	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/defaults"
 	"github.com/containerd/containerd/v2/pkg/namespaces"
 )
 
@@ -515,7 +516,7 @@ func WithHostHostsFile(_ context.Context, _ Client, _ *containers.Container, s *
 	s.Mounts = append(s.Mounts, specs.Mount{
 		Destination: "/etc/hosts",
 		Type:        "bind",
-		Source:      "/etc/hosts",
+		Source:      defaults.Prefix("/etc/hosts"),
 		Options:     []string{"rbind", "ro"},
 	})
 	return nil
@@ -526,7 +527,7 @@ func WithHostResolvconf(_ context.Context, _ Client, _ *containers.Container, s 
 	s.Mounts = append(s.Mounts, specs.Mount{
 		Destination: "/etc/resolv.conf",
 		Type:        "bind",
-		Source:      "/etc/resolv.conf",
+		Source:      defaults.Prefix("/etc/resolv.conf"),
 		Options:     []string{"rbind", "ro"},
 	})
 	return nil
@@ -537,7 +538,7 @@ func WithHostLocaltime(_ context.Context, _ Client, _ *containers.Container, s *
 	s.Mounts = append(s.Mounts, specs.Mount{
 		Destination: "/etc/localtime",
 		Type:        "bind",
-		Source:      "/etc/localtime",
+		Source:      defaults.Prefix("/etc/localtime"),
 		Options:     []string{"rbind", "ro"},
 	})
 	return nil
