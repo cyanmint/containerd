@@ -23,6 +23,7 @@ import (
 
 	containerd "github.com/containerd/containerd/v2/client"
 	"github.com/containerd/containerd/v2/cmd/ctr/commands"
+	"github.com/containerd/containerd/v2/defaults"
 	gocni "github.com/containerd/go-cni"
 	"github.com/containerd/log"
 	"github.com/containerd/typeurl/v2"
@@ -50,7 +51,10 @@ func RemoveCniNetworkIfExist(ctx context.Context, container containerd.Container
 
 	var network gocni.CNI
 	if networkMetaData.EnableCni {
-		if network, err = gocni.New(gocni.WithDefaultConf); err != nil {
+		if network, err = gocni.New(
+			gocni.WithPluginConfDir(defaults.Prefix(gocni.DefaultNetDir)),
+			gocni.WithDefaultConf,
+		); err != nil {
 			return err
 		}
 		if err := network.Remove(ctx, commands.FullID(ctx, container), ""); err != nil {
