@@ -76,7 +76,11 @@ func outputConfig(ctx context.Context, config *srvconfig.Config) error {
 }
 
 func defaultConfig() *srvconfig.Config {
-	return platformAgnosticDefaultConfig()
+	return platformAgnosticDefaultConfig("")
+}
+
+func defaultConfigWithPrefix(prefix string) *srvconfig.Config {
+	return platformAgnosticDefaultConfig(prefix)
 }
 
 var configCommand = &cli.Command{
@@ -88,7 +92,7 @@ var configCommand = &cli.Command{
 			Usage: "See the output of the default config",
 			Action: func(cliContext *cli.Context) error {
 				ctx := cliContext.Context
-				return outputConfig(ctx, defaultConfig())
+				return outputConfig(ctx, defaultConfigWithPrefix(cliContext.String("prefix")))
 			},
 		},
 		{
@@ -106,7 +110,7 @@ var configCommand = &cli.Command{
 }
 
 func dumpConfig(cliContext *cli.Context) error {
-	config := defaultConfig()
+	config := defaultConfigWithPrefix(cliContext.String("prefix"))
 	ctx := cliContext.Context
 	if err := srvconfig.LoadConfig(ctx, cliContext.String("config"), config); err != nil && !os.IsNotExist(err) {
 		return err
@@ -125,34 +129,40 @@ func dumpConfig(cliContext *cli.Context) error {
 	return outputConfig(ctx, config)
 }
 
-func platformAgnosticDefaultConfig() *srvconfig.Config {
+func platformAgnosticDefaultConfig(prefix string) *srvconfig.Config {
+	pfx := func(path string) string {
+		if prefix == "" {
+			return path
+		}
+		return filepath.Join(prefix, path)
+	}
 	return &srvconfig.Config{
 		Version: version.ConfigVersion,
-		Root:    defaults.DefaultRootDir,
-		State:   defaults.DefaultStateDir,
+		Root:    pfx(defaults.DefaultRootDir),
+		State:   pfx(defaults.DefaultStateDir),
 		GRPC: srvconfig.GRPCConfig{
-			Address:        defaults.DefaultAddress,
+			Address:        pfx(defaults.DefaultAddress),
 			MaxRecvMsgSize: defaults.DefaultMaxRecvMsgSize,
 			MaxSendMsgSize: defaults.DefaultMaxSendMsgSize,
 		},
 		DisabledPlugins:  []string{},
 		RequiredPlugins:  []string{},
-		StreamProcessors: streamProcessors(),
-		Imports:          []string{defaults.DefaultConfigIncludePattern},
+		StreamProcessors: streamProcessors(pfx(defaults.DefaultConfigDir)),
+		Imports:          []string{pfx(defaults.DefaultConfigIncludePattern)},
 	}
 }
 
-func streamProcessors() map[string]srvconfig.StreamProcessor {
+func streamProcessors(configDir string) map[string]srvconfig.StreamProcessor {
 	const (
 		ctdDecoder = "ctd-decoder"
 		basename   = "io.containerd.ocicrypt.decoder.v1"
 	)
-	decryptionKeysPath := filepath.Join(defaults.DefaultConfigDir, "ocicrypt", "keys")
+	decryptionKeysPath := filepath.Join(configDir, "ocicrypt", "keys")
 	ctdDecoderArgs := []string{
 		"--decryption-keys-path", decryptionKeysPath,
 	}
 	ctdDecoderEnv := []string{
-		"OCICRYPT_KEYPROVIDER_CONFIG=" + filepath.Join(defaults.DefaultConfigDir, "ocicrypt", "ocicrypt_keyprovider.conf"),
+		"OCICRYPT_KEYPROVIDER_CONFIG=" + filepath.Join(configDir, "ocicrypt", "ocicrypt_keyprovider.conf"),
 	}
 	return map[string]srvconfig.StreamProcessor{
 		basename + ".tar.gzip": {

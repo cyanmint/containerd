@@ -122,6 +122,10 @@ containerd CLI
 			Value:   namespaces.Default,
 			EnvVars: []string{namespaces.NamespaceEnvVar},
 		},
+		&cli.StringFlag{
+			Name:  "prefix",
+			Usage: "Prefix directory for all containerd default paths",
+		},
 	}
 	app.Commands = append([]*cli.Command{
 		plugins.Command,
@@ -143,6 +147,13 @@ containerd CLI
 		deprecations.Command,
 	}, extraCmds...)
 	app.Before = func(cliContext *cli.Context) error {
+		if prefix := cliContext.String("prefix"); prefix != "" {
+			if !cliContext.IsSet("address") {
+				if err := cliContext.Set("address", filepath.Join(prefix, defaults.DefaultAddress)); err != nil {
+					return err
+				}
+			}
+		}
 		if cliContext.Bool("debug") {
 			return log.SetLevel("debug")
 		}

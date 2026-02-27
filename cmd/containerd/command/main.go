@@ -118,6 +118,10 @@ can be used and modified as necessary as a custom configuration.`
 			Name:  "state",
 			Usage: "containerd state directory",
 		},
+		&cli.StringFlag{
+			Name:  "prefix",
+			Usage: "Prefix directory for all containerd default paths",
+		},
 	}
 	app.Flags = append(app.Flags, serviceFlags()...)
 	app.Commands = []*cli.Command{
@@ -135,7 +139,8 @@ can be used and modified as necessary as a custom configuration.`
 			signals     = make(chan os.Signal, 2048)
 			serverC     = make(chan *server.Server, 1)
 			ctx, cancel = context.WithCancel(cliContext.Context)
-			config      = defaultConfig()
+			prefix      = cliContext.String("prefix")
+			config      = defaultConfigWithPrefix(prefix)
 		)
 
 		defer cancel()
@@ -143,6 +148,9 @@ can be used and modified as necessary as a custom configuration.`
 		// Only try to load the config if it either exists, or the user explicitly
 		// told us to load this path.
 		configPath := cliContext.String("config")
+		if prefix != "" && !cliContext.IsSet("config") {
+			configPath = filepath.Join(prefix, defaults.DefaultConfigDir, "config.toml")
+		}
 		_, err := os.Stat(configPath)
 		if !os.IsNotExist(err) || cliContext.IsSet("config") {
 			if err := srvconfig.LoadConfig(ctx, configPath, config); err != nil {
