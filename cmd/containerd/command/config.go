@@ -75,10 +75,6 @@ func outputConfig(ctx context.Context, config *srvconfig.Config) error {
 	return toml.NewEncoder(os.Stdout).SetIndentTables(true).Encode(config)
 }
 
-func defaultConfig() *srvconfig.Config {
-	return platformAgnosticDefaultConfig("")
-}
-
 func defaultConfigWithPrefix(prefix string) *srvconfig.Config {
 	return platformAgnosticDefaultConfig(prefix)
 }

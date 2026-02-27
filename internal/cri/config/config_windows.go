@@ -42,6 +42,15 @@ func DefaultImageConfig() ImageConfig {
 	}
 }
 
+// ApplyPrefixToRuntimeDefaults is a no-op on Windows; CNI/CDI paths are not
+// prefixed because they are constructed from ProgramFiles and are always
+// user-configured on Windows.
+func ApplyPrefixToRuntimeDefaults(_ *RuntimeConfig) {}
+
+// ApplyPrefixToImageDefaults is a no-op on Windows; registry paths are not
+// set by default on Windows.
+func ApplyPrefixToImageDefaults(_ *ImageConfig) {}
+
 // DefaultRuntimeConfig returns default configurations of cri plugin.
 func DefaultRuntimeConfig() RuntimeConfig {
 	return RuntimeConfig{

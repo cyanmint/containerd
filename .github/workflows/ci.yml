@@ -171,6 +171,11 @@ jobs:
         run: |
           make build
           make binaries
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        if: always()
+        with:
+          name: Crossbuild Binaries ${{matrix.goos}}-${{matrix.goarch}}${{matrix.goarm && format('-v{0}', matrix.goarm) || ''}}
+          path: bin/
 
   #
   # Build containerd binaries
@@ -196,6 +201,11 @@ jobs:
         run: |
           make build
           make binaries
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        if: always()
+        with:
+          name: Binaries ${{ matrix.os }} go${{ matrix.go-version }}
+          path: bin/
 
   #
   # Integration and CRI tests

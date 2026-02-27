@@ -107,6 +107,7 @@ jobs:
       - name: Make
         shell: bash
         run: |
+          echo "PLATFORM_CLEAN=${PLATFORM/\//-}" >> $GITHUB_ENV
           cache="--cache-from=type=gha,scope=containerd-release --cache-to=type=gha,scope=containerd-release"
           if [[ "${PLATFORM}" =~ "windows" ]]; then
             # For Windows the cni build script generates a config but shells out to powershell (and also assume it is running on windows) to get a gateway and subnet.
@@ -116,7 +117,6 @@ jobs:
             BUILD_ARGS="--build-arg GATEWAY --build-arg PREFIX_LEN"
           fi
           docker buildx build ${cache} --build-arg RELEASE_VER --build-arg UBUNTU_VERSION=${{ matrix.dockerfile-ubuntu }} ${BUILD_ARGS} -f .github/workflows/release/Dockerfile --platform=${PLATFORM} -o releases/ .
-          echo PLATFORM_CLEAN=${PLATFORM/\//-} >> $GITHUB_ENV
 
           # Remove symlinks since we don't want these in the release Artifacts (if any)
           find ./releases/ -maxdepth 1 -type l | xargs rm -f
@@ -124,6 +124,7 @@ jobs:
         env:
           PLATFORM: ${{ matrix.dockerfile-platform }}
       - name: Save Artifacts
+        if: always()
         uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: release-tars-${{env.PLATFORM_CLEAN}}

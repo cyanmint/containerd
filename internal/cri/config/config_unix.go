@@ -166,4 +166,3 @@ func ApplyPrefixToImageDefaults(cfg *ImageConfig) {
 		cfg.Registry.ConfigPath = defaults.Prefix(defaultRegistryConfDir) + ":" + defaults.Prefix(defaultDockerCertsDir)
 	}
 }
-
