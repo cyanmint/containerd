@@ -33,6 +33,7 @@ import (
 	shimapi "github.com/containerd/containerd/api/runtime/task/v3"
 	"github.com/containerd/containerd/api/types"
 	"github.com/containerd/containerd/v2/core/events"
+	"github.com/containerd/containerd/v2/defaults"
 	"github.com/containerd/containerd/v2/pkg/namespaces"
 	"github.com/containerd/containerd/v2/pkg/protobuf"
 	"github.com/containerd/containerd/v2/pkg/protobuf/proto"
@@ -127,6 +128,7 @@ var (
 	bundlePath           string
 	addressFlag          string
 	containerdBinaryFlag string
+	prefixFlag           string
 	action               string
 )
 
@@ -158,9 +160,16 @@ func parseFlags() {
 	flag.StringVar(&containerdBinaryFlag, "publish-binary", "",
 		fmt.Sprintf("path to publish binary (used for publishing events), but %s will ignore this flag, please use the %s env", os.Args[0], ttrpcAddressEnv),
 	)
+	flag.StringVar(&prefixFlag, "prefix", "", "prefix directory for all default paths")
 
 	flag.Parse()
 	action = flag.Arg(0)
+
+	// Set PathPrefix before any default-path computation so all subsystems
+	// (including process.RuncRoot usage) see the correct prefix.
+	if prefixFlag != "" {
+		defaults.PathPrefix = prefixFlag
+	}
 }
 
 func setRuntime() {

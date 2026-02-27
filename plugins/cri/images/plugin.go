@@ -61,6 +61,12 @@ func init() {
 			}
 			mdb := m.(*metadata.DB)
 
+			// Apply PathPrefix to any registry path that is still at its
+			// hardcoded default (i.e. was not explicitly set in the config
+			// file).  This must run here, inside the InitFn, because
+			// defaults.PathPrefix is set in main() after init() functions run.
+			criconfig.ApplyPrefixToImageDefaults(&config)
+
 			if warnings, err := criconfig.ValidateImageConfig(ic.Context, &config); err != nil {
 				return nil, fmt.Errorf("invalid cri image config: %w", err)
 			} else if len(warnings) > 0 {

@@ -140,8 +140,13 @@ can be used and modified as necessary as a custom configuration.`
 			serverC     = make(chan *server.Server, 1)
 			ctx, cancel = context.WithCancel(cliContext.Context)
 			prefix      = cliContext.String("prefix")
-			config      = defaultConfigWithPrefix(prefix)
 		)
+
+		// Set PathPrefix before any default-path computation so that all
+		// subsystems (including plugins loaded later) see the same prefix.
+		defaults.PathPrefix = prefix
+
+		config := defaultConfigWithPrefix(prefix)
 
 		defer cancel()
 

@@ -148,8 +148,11 @@ containerd CLI
 	}, extraCmds...)
 	app.Before = func(cliContext *cli.Context) error {
 		if prefix := cliContext.String("prefix"); prefix != "" {
+			// Set PathPrefix so all subsystems that call defaults.Prefix() see it.
+			defaults.PathPrefix = prefix
+			// Only override address if the user did not set it explicitly.
 			if !cliContext.IsSet("address") {
-				if err := cliContext.Set("address", filepath.Join(prefix, defaults.DefaultAddress)); err != nil {
+				if err := cliContext.Set("address", defaults.Prefix(defaults.DefaultAddress)); err != nil {
 					return err
 				}
 			}

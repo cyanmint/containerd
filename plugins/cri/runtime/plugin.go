@@ -61,6 +61,11 @@ func initCRIRuntime(ic *plugin.InitContext) (interface{}, error) {
 	ic.Meta.Exports = map[string]string{"CRIVersion": constants.CRIVersion}
 	ctx := ic.Context
 	pluginConfig := ic.Config.(*criconfig.RuntimeConfig)
+	// Apply PathPrefix to any CNI/CDI path that is still at its hardcoded
+	// default (i.e. was not explicitly set in the config file).  This must
+	// run here, inside the InitFn, because defaults.PathPrefix is set in
+	// main() after package init() functions have already run.
+	criconfig.ApplyPrefixToRuntimeDefaults(pluginConfig)
 	if warnings, err := criconfig.ValidateRuntimeConfig(ctx, pluginConfig); err != nil {
 		return nil, fmt.Errorf("invalid plugin config: %w", err)
 	} else if len(warnings) > 0 {
