@@ -16,7 +16,10 @@
 
 package defaults
 
-import "testing"
+import (
+	"path/filepath"
+	"testing"
+)
 
 func TestPrefix(t *testing.T) {
 	// Save and restore the global so parallel tests are unaffected.
@@ -34,8 +37,9 @@ func TestPrefix(t *testing.T) {
 	t.Run("with prefix", func(t *testing.T) {
 		PathPrefix = "/data/local/containerd"
 		got := Prefix("/run/containerd")
-		if got != "/data/local/containerd/run/containerd" {
-			t.Errorf("expected /data/local/containerd/run/containerd, got %s", got)
+		want := filepath.Join("/data/local/containerd", "/run/containerd")
+		if got != want {
+			t.Errorf("expected %s, got %s", want, got)
 		}
 	})
 
@@ -46,8 +50,9 @@ func TestPrefix(t *testing.T) {
 		// the contract: Prefix() prepends, full stop.
 		PathPrefix = "/data/local/containerd"
 		got := Prefix("/run/containerd")
-		if got != "/data/local/containerd/run/containerd" {
-			t.Errorf("expected /data/local/containerd/run/containerd, got %s", got)
+		want := filepath.Join("/data/local/containerd", "/run/containerd")
+		if got != want {
+			t.Errorf("expected %s, got %s", want, got)
 		}
 	})
 }
