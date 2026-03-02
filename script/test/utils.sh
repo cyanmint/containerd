@@ -265,6 +265,16 @@ test_setup() {
     echo "containerd is not built"
     exit 1
   fi
+  # On Linux systems using iptables-nft (e.g. RHEL/AlmaLinux 10), the nf_tables
+  # nat and filter tables may not be initialized, and the xt_comment kernel module
+  # may not be loaded.  Both are required by the CNI bridge plugin.  Pre-load them
+  # here so that RunPodSandbox network setup does not fail.
+  if [ $IS_WINDOWS -eq 0 ]; then
+    modprobe xt_comment 2>/dev/null || true
+    iptables -t nat -nL > /dev/null 2>&1 || true
+    iptables -t filter -nL > /dev/null 2>&1 || true
+  fi
+
   set -m
   # Create containerd in a different process group
   # so that we can easily clean them up.

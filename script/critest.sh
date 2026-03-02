@@ -118,6 +118,13 @@ fi
 
 ls /etc/cni/net.d
 
+# On systems using iptables-nft (e.g. RHEL/AlmaLinux 10), the nf_tables nat and
+# filter tables may not be initialized and the xt_comment kernel module may not be
+# loaded.  Both are required by the CNI bridge plugin for RunPodSandbox network setup.
+modprobe xt_comment 2>/dev/null || true
+iptables -t nat -nL > /dev/null 2>&1 || true
+iptables -t filter -nL > /dev/null 2>&1 || true
+
 /usr/local/bin/containerd \
     -a ${BDIR}/c.sock \
     --config ${BDIR}/config.toml \
