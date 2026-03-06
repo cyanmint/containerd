@@ -118,6 +118,10 @@ can be used and modified as necessary as a custom configuration.`
 			Name:  "state",
 			Usage: "containerd state directory",
 		},
+		&cli.StringFlag{
+			Name:  "prefix",
+			Usage: "Prefix directory for all containerd default paths",
+		},
 	}
 	app.Flags = append(app.Flags, serviceFlags()...)
 	app.Commands = []*cli.Command{
@@ -135,14 +139,27 @@ can be used and modified as necessary as a custom configuration.`
 			signals     = make(chan os.Signal, 2048)
 			serverC     = make(chan *server.Server, 1)
 			ctx, cancel = context.WithCancel(cliContext.Context)
-			config      = defaultConfig()
+			prefix      = cliContext.String("prefix")
 		)
+
+		// Set PathPrefix before any default-path computation so that all
+		// subsystems (including plugins loaded later) see the same prefix.
+		defaults.PathPrefix = prefix
+		// On devices without /etc/resolv.conf (e.g. Android/Termux), Go's
+		// DNS resolver falls back to unreachable defaults.  Override it to
+		// use the nameservers from PREFIX/etc/resolv.conf instead.
+		defaults.ConfigureResolver()
+
+		config := defaultConfigWithPrefix(prefix)
 
 		defer cancel()
 
 		// Only try to load the config if it either exists, or the user explicitly
 		// told us to load this path.
 		configPath := cliContext.String("config")
+		if prefix != "" && !cliContext.IsSet("config") {
+			configPath = filepath.Join(prefix, defaults.DefaultConfigDir, "config.toml")
+		}
 		_, err := os.Stat(configPath)
 		if !os.IsNotExist(err) || cliContext.IsSet("config") {
 			if err := srvconfig.LoadConfig(ctx, configPath, config); err != nil {

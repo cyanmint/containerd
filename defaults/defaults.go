@@ -16,6 +16,24 @@
 
 package defaults
 
+import "path/filepath"
+
+// PathPrefix is an optional prefix prepended to all default paths.
+// It is set once at process startup (e.g. from the --prefix flag) and is
+// never changed afterwards.  Code that computes default paths should call
+// Prefix() rather than hard-coding the base path.
+var PathPrefix string
+
+// Prefix prepends PathPrefix to path.  If PathPrefix is empty the original
+// path is returned unchanged.  An explicitly-configured value (i.e. one not
+// derived from a default) must never be passed through this function.
+func Prefix(path string) string {
+	if PathPrefix == "" {
+		return path
+	}
+	return filepath.Join(PathPrefix, path)
+}
+
 const (
 	// DefaultMaxRecvMsgSize defines the default maximum message size for
 	// receiving protobufs passed over the GRPC API.

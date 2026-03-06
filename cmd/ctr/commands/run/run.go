@@ -37,6 +37,7 @@ import (
 	"github.com/containerd/containerd/v2/cmd/ctr/commands"
 	"github.com/containerd/containerd/v2/cmd/ctr/commands/tasks"
 	"github.com/containerd/containerd/v2/core/containers"
+	"github.com/containerd/containerd/v2/defaults"
 	"github.com/containerd/containerd/v2/pkg/cio"
 	clabels "github.com/containerd/containerd/v2/pkg/labels"
 	"github.com/containerd/containerd/v2/pkg/oci"
@@ -219,7 +220,11 @@ var Command = &cli.Command{
 		}
 		var network gocni.CNI
 		if enableCNI {
-			if network, err = gocni.New(gocni.WithDefaultConf); err != nil {
+			if network, err = gocni.New(
+				gocni.WithPluginDir([]string{defaults.Prefix(gocni.DefaultCNIDir)}),
+				gocni.WithPluginConfDir(defaults.Prefix(gocni.DefaultNetDir)),
+				gocni.WithDefaultConf,
+			); err != nil {
 				return err
 			}
 		}

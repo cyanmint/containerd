@@ -38,6 +38,7 @@ import (
 	"github.com/containerd/containerd/v2/core/metadata"
 	"github.com/containerd/containerd/v2/core/runtime"
 	"github.com/containerd/containerd/v2/core/sandbox"
+	"github.com/containerd/containerd/v2/defaults"
 	"github.com/containerd/containerd/v2/pkg/namespaces"
 	shimbinary "github.com/containerd/containerd/v2/pkg/shim"
 	"github.com/containerd/containerd/v2/pkg/timeout"
@@ -379,6 +380,25 @@ func (m *ShimManager) resolveRuntimePath(runtime string) (string, error) {
 	binaryPath := shimbinary.BinaryPath(runtime)
 	if _, serr := os.Stat(binaryPath); serr == nil {
 		cmdPath = binaryPath
+	}
+
+	// If a path prefix is set (via --prefix), search the prefixed bin
+	// directories before falling back to the system PATH.  This ensures that
+	// when containerd is started with e.g. --prefix /data/local/containerd the
+	// shim from /data/local/containerd/usr/bin/ is preferred over any shim
+	// found in the calling process's own directory or in the system PATH.
+	if cmdPath == "" && defaults.PathPrefix != "" {
+		for _, dir := range []string{
+			filepath.Join(defaults.PathPrefix, "usr", "local", "bin"),
+			filepath.Join(defaults.PathPrefix, "usr", "bin"),
+			filepath.Join(defaults.PathPrefix, "bin"),
+		} {
+			testPath := filepath.Join(dir, name)
+			if _, serr := os.Stat(testPath); serr == nil {
+				cmdPath = testPath
+				break
+			}
+		}
 	}
 
 	if cmdPath == "" {

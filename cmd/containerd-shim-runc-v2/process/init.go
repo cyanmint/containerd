@@ -32,6 +32,7 @@ import (
 
 	"github.com/containerd/console"
 	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/defaults"
 	google_protobuf "github.com/containerd/containerd/v2/pkg/protobuf/types"
 	"github.com/containerd/containerd/v2/pkg/stdio"
 	"github.com/containerd/fifo"
@@ -81,7 +82,7 @@ type Init struct {
 // NewRunc returns a new runc instance for a process
 func NewRunc(root, path, namespace, runtime string, systemd bool) *runc.Runc {
 	if root == "" {
-		root = RuncRoot
+		root = defaults.Prefix(RuncRoot)
 	}
 	return &runc.Runc{
 		Command:       runtime,

@@ -39,6 +39,7 @@ import (
 	"github.com/containerd/containerd/v2/cmd/containerd-shim-runc-v2/process"
 	"github.com/containerd/containerd/v2/cmd/containerd-shim-runc-v2/runc"
 	"github.com/containerd/containerd/v2/core/mount"
+	"github.com/containerd/containerd/v2/defaults"
 	"github.com/containerd/containerd/v2/pkg/namespaces"
 	"github.com/containerd/containerd/v2/pkg/schedcore"
 	"github.com/containerd/containerd/v2/pkg/shim"
@@ -96,6 +97,9 @@ func newCommand(ctx context.Context, id, containerdAddress, containerdTTRPCAddre
 		"-namespace", ns,
 		"-id", id,
 		"-address", containerdAddress,
+	}
+	if defaults.PathPrefix != "" {
+		args = append(args, "-prefix", defaults.PathPrefix)
 	}
 	if debug {
 		args = append(args, "-debug")
@@ -301,7 +305,7 @@ func (manager) Stop(ctx context.Context, id string) (shim.StopStatus, error) {
 	if err != nil {
 		return shim.StopStatus{}, err
 	}
-	root := process.RuncRoot
+	root := defaults.Prefix(process.RuncRoot)
 	if opts != nil && opts.Root != "" {
 		root = opts.Root
 	}
@@ -353,6 +357,20 @@ func (m manager) Info(ctx context.Context, optionsR io.Reader) (*types.RuntimeIn
 
 	}
 	absBinary, err := exec.LookPath(binaryName)
+	if err != nil && !filepath.IsAbs(binaryName) {
+		// Fall back to looking for the binary next to the shim binary,
+		// mirroring how containerd resolves shim binaries next to itself.
+		// This ensures OCI runtimes installed alongside the shim under a
+		// path prefix (e.g. /data/local/containerd/usr/bin/) are found
+		// even when that directory is not on PATH.
+		if self, selfErr := os.Executable(); selfErr == nil {
+			testPath := filepath.Join(filepath.Dir(self), binaryName)
+			if _, statErr := os.Stat(testPath); statErr == nil {
+				absBinary = testPath
+				err = nil
+			}
+		}
+	}
 	if err != nil {
 		return nil, fmt.Errorf("failed to look up the path of %q: %w", binaryName, err)
 	}

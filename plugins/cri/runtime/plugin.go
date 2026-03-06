@@ -73,6 +73,14 @@ func initCRIRuntime(ic *plugin.InitContext) (interface{}, error) {
 			warn.Emit(ctx, w)
 		}
 	}
+	// Apply PathPrefix to any CNI/CDI path that is still at its hardcoded
+	// default (i.e. was not explicitly set in the config file).  This runs
+	// after ValidateRuntimeConfig so that the deprecated bin_dir→bin_dirs
+	// migration happens first (the migration compares against the raw default;
+	// if we prefixed before that, the comparison would fail when both bin_dir
+	// and a prefix are in use).  It runs here, inside the InitFn, because
+	// defaults.PathPrefix is set in main() after package init() functions.
+	criconfig.ApplyPrefixToRuntimeDefaults(pluginConfig)
 
 	// For backward compatibility, we have to keep the rootDir and stateDir the same as before.
 	containerdRootDir := filepath.Dir(ic.Properties[plugins.PropertyRootDir])

@@ -122,6 +122,10 @@ containerd CLI
 			Value:   namespaces.Default,
 			EnvVars: []string{namespaces.NamespaceEnvVar},
 		},
+		&cli.StringFlag{
+			Name:  "prefix",
+			Usage: "Prefix directory for all containerd default paths",
+		},
 	}
 	app.Commands = append([]*cli.Command{
 		plugins.Command,
@@ -143,6 +147,19 @@ containerd CLI
 		deprecations.Command,
 	}, extraCmds...)
 	app.Before = func(cliContext *cli.Context) error {
+		if prefix := cliContext.String("prefix"); prefix != "" {
+			// Set PathPrefix so all subsystems that call defaults.Prefix() see it.
+			defaults.PathPrefix = prefix
+			// On devices without /etc/resolv.conf (e.g. Android/Termux), configure
+			// the Go DNS resolver to use nameservers from PREFIX/etc/resolv.conf.
+			defaults.ConfigureResolver()
+			// Only override address if the user did not set it explicitly.
+			if !cliContext.IsSet("address") {
+				if err := cliContext.Set("address", defaults.Prefix(defaults.DefaultAddress)); err != nil {
+					return err
+				}
+			}
+		}
 		if cliContext.Bool("debug") {
 			return log.SetLevel("debug")
 		}

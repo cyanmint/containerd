@@ -32,6 +32,7 @@ import (
 	"github.com/containerd/ttrpc"
 	"github.com/containerd/typeurl/v2"
 
+	"github.com/containerd/containerd/v2/defaults"
 	"github.com/containerd/containerd/v2/pkg/atomicfile"
 	"github.com/containerd/containerd/v2/pkg/namespaces"
 	"github.com/containerd/containerd/v2/pkg/protobuf/proto"
@@ -63,6 +64,9 @@ func Command(ctx context.Context, config *CommandConfig) (*exec.Cmd, error) {
 		"-namespace", ns,
 		"-address", config.Address,
 		"-publish-binary", self,
+	}
+	if defaults.PathPrefix != "" {
+		args = append(args, "-prefix", defaults.PathPrefix)
 	}
 	args = append(args, config.Args...)
 	cmd := exec.CommandContext(ctx, config.Runtime, args...)

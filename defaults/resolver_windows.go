@@ -1,3 +1,5 @@
+//go:build windows
+
 /*
    Copyright The containerd Authors.
 
@@ -14,27 +16,8 @@
    limitations under the License.
 */
 
-package nri
+package defaults
 
-import (
-	"github.com/containerd/containerd/v2/internal/nri"
-	"github.com/containerd/containerd/v2/plugins"
-	"github.com/containerd/plugin"
-	"github.com/containerd/plugin/registry"
-)
-
-func init() {
-	registry.Register(&plugin.Registration{
-		Type:   plugins.NRIApiPlugin,
-		ID:     "nri",
-		Config: nri.DefaultConfig(),
-		InitFn: initFunc,
-	})
-}
-
-func initFunc(ic *plugin.InitContext) (interface{}, error) {
-	cfg := ic.Config.(*nri.Config)
-	nri.ApplyPrefixToNRIDefaults(cfg)
-	l, err := nri.New(cfg)
-	return l, err
-}
+// ConfigureResolver is a no-op on Windows; the platform's native resolver
+// handles DNS without needing /etc/resolv.conf.
+func ConfigureResolver() {}

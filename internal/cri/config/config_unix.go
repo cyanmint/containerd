@@ -23,8 +23,18 @@ import (
 	"github.com/pelletier/go-toml/v2"
 )
 
+// Default path constants used as "unset" sentinels in ApplyPrefix* functions.
+const (
+	defaultCNIBinDir       = "/opt/cni/bin"
+	defaultCNIConfDir      = "/etc/cni/net.d"
+	defaultCDISpecDir1     = "/etc/cdi"
+	defaultCDISpecDir2     = "/var/run/cdi"
+	defaultRegistryConfDir = "/etc/containerd/certs.d"
+	defaultDockerCertsDir  = "/etc/docker/certs.d"
+)
+
 func defaultNetworkPluginBinDirs() []string {
-	return []string{"/opt/cni/bin"}
+	return []string{defaultCNIBinDir}
 }
 
 func DefaultImageConfig() ImageConfig {
@@ -33,7 +43,7 @@ func DefaultImageConfig() ImageConfig {
 		DisableSnapshotAnnotations: true,
 		MaxConcurrentDownloads:     3,
 		Registry: Registry{
-			ConfigPath: "/etc/containerd/certs.d:/etc/docker/certs.d",
+			ConfigPath: defaultRegistryConfDir + ":" + defaultDockerCertsDir,
 		},
 		ImageDecryption: ImageDecryption{
 			KeyModel: KeyModelNode,
@@ -83,7 +93,7 @@ func DefaultRuntimeConfig() RuntimeConfig {
 	return RuntimeConfig{
 		CniConfig: CniConfig{
 			NetworkPluginBinDirs:       defaultNetworkPluginBinDirs(),
-			NetworkPluginConfDir:       "/etc/cni/net.d",
+			NetworkPluginConfDir:       defaultCNIConfDir,
 			NetworkPluginMaxConfNum:    1, // only one CNI plugin config file will be loaded
 			NetworkPluginSetupSerially: false,
 			NetworkPluginConfTemplate:  "",
@@ -107,9 +117,52 @@ func DefaultRuntimeConfig() RuntimeConfig {
 		DisableHugetlbController:         true,
 		IgnoreImageDefinedVolumes:        false,
 		EnableCDI:                        func() *bool { v := true; return &v }(),
-		CDISpecDirs:                      []string{"/etc/cdi", "/var/run/cdi"},
+		CDISpecDirs:                      []string{defaultCDISpecDir1, defaultCDISpecDir2},
 		DrainExecSyncIOTimeout:           "0s",
 		EnableUnprivilegedPorts:          true,
 		EnableUnprivilegedICMP:           true,
+	}
+}
+
+// ApplyPrefixToRuntimeDefaults prepends defaults.PathPrefix to every CNI/CDI
+// path in cfg that has not been overridden from its hard-coded default.
+// Fields that differ from the known default (i.e. were set explicitly via the
+// config file) are left unchanged.
+// This function must be called inside the plugin InitFn, after config.Decode
+// has merged any config-file values, so that defaults.PathPrefix is already set.
+func ApplyPrefixToRuntimeDefaults(cfg *RuntimeConfig) {
+	if defaults.PathPrefix == "" {
+		return
+	}
+	// CNI bin dirs: only rewrite if still exactly the single-element default slice.
+	if len(cfg.CniConfig.NetworkPluginBinDirs) == 1 &&
+		cfg.CniConfig.NetworkPluginBinDirs[0] == defaultCNIBinDir {
+		cfg.CniConfig.NetworkPluginBinDirs = []string{defaults.Prefix(defaultCNIBinDir)}
+	}
+	// CNI conf dir
+	if cfg.CniConfig.NetworkPluginConfDir == defaultCNIConfDir {
+		cfg.CniConfig.NetworkPluginConfDir = defaults.Prefix(defaultCNIConfDir)
+	}
+	// CDI spec dirs: only rewrite if still exactly the two-element default slice.
+	if len(cfg.CDISpecDirs) == 2 &&
+		cfg.CDISpecDirs[0] == defaultCDISpecDir1 &&
+		cfg.CDISpecDirs[1] == defaultCDISpecDir2 {
+		cfg.CDISpecDirs = []string{
+			defaults.Prefix(defaultCDISpecDir1),
+			defaults.Prefix(defaultCDISpecDir2),
+		}
+	}
+}
+
+// ApplyPrefixToImageDefaults prepends defaults.PathPrefix to the registry
+// ConfigPath in cfg if it has not been overridden from its hard-coded default.
+// This function must be called inside the plugin InitFn, after config.Decode
+// has merged any config-file values.
+func ApplyPrefixToImageDefaults(cfg *ImageConfig) {
+	if defaults.PathPrefix == "" {
+		return
+	}
+	if cfg.Registry.ConfigPath == defaultRegistryConfDir+":"+defaultDockerCertsDir {
+		cfg.Registry.ConfigPath = defaults.Prefix(defaultRegistryConfDir) + ":" + defaults.Prefix(defaultDockerCertsDir)
 	}
 }

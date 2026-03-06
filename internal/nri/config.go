@@ -17,6 +17,7 @@
 package nri
 
 import (
+	"github.com/containerd/containerd/v2/defaults"
 	"github.com/containerd/containerd/v2/internal/tomlext"
 	nri "github.com/containerd/nri/pkg/adaptation"
 	validator "github.com/containerd/nri/plugins/default-validator"
@@ -102,5 +103,24 @@ func (c *Config) ConfigureTimeouts() {
 	}
 	if c.PluginRequestTimeout != 0 {
 		nri.SetPluginRequestTimeout(tomlext.ToStdTime(c.PluginRequestTimeout))
+	}
+}
+
+// ApplyPrefixToNRIDefaults prepends defaults.PathPrefix to the NRI socket,
+// plugin, and config paths in cfg if they have not been overridden from their
+// hard-coded defaults. This must be called inside the plugin InitFn, after the
+// config has been decoded, so that defaults.PathPrefix is already set.
+func ApplyPrefixToNRIDefaults(cfg *Config) {
+	if defaults.PathPrefix == "" {
+		return
+	}
+	if cfg.SocketPath == nri.DefaultSocketPath {
+		cfg.SocketPath = defaults.Prefix(nri.DefaultSocketPath)
+	}
+	if cfg.PluginPath == nri.DefaultPluginPath {
+		cfg.PluginPath = defaults.Prefix(nri.DefaultPluginPath)
+	}
+	if cfg.PluginConfigPath == nri.DefaultPluginConfigPath {
+		cfg.PluginConfigPath = defaults.Prefix(nri.DefaultPluginConfigPath)
 	}
 }
